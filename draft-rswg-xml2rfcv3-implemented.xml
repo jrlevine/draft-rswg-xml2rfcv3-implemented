@@ -1161,11 +1161,11 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
    <iref item="Elements" subitem="br" primary="true"/>
    <iref item="br element" primary="true"/>
    <t>
-      <cref>Forces a line break. Since the layout and column widths of a document vary from
-	 one rendering to another, authors should use this element sparingly and consider its
-	 effect in all of the likely renderings.
-	 In some cases a U+200B, ZERO WIDTH SPACE character as a hint as a place where a block of
-	 text might be broken is a better choice.</cref>
+      Forces a line break. Since the layout and column widths of a document vary from
+      one rendering to another, authors should use this element sparingly and
+      consider its effect in all of the likely renderings. In some cases a U+200B,
+      ZERO WIDTH SPACE character as a hint as a place where a block of text might be
+      broken is a better choice.
    </t>
    <t><!--AG-->This element appears as a child element of &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>title</x:ref>&gt; (<xref target="element.title"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.br.contents"><!--AG-->
