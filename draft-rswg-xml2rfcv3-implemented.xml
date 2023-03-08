@@ -3907,11 +3907,31 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
    <t anchor="element.stream.contents"><!--AG-->
       <xref format="none" target="grammar.stream">Content model</xref>:
     </t>
-   <t><!--AG-->
-      <cref>
-      Missing template for optional.
-    </cref>
-   </t>
+   <t><!--AG-->Optionally:</t>
+   <ul empty="true"><!--AG-->
+      <li>
+         <t><!--AG-->Either:</t>
+         <ul empty="true"><!--AG-->
+            <li>"IETF"</li>
+         </ul>
+         <t><!--AG-->Or:</t>
+         <ul empty="true"><!--AG-->
+            <li>"IAB"</li>
+         </ul>
+         <t><!--AG-->Or:</t>
+         <ul empty="true"><!--AG-->
+            <li>"IRTF"</li>
+         </ul>
+         <t><!--AG-->Or:</t>
+         <ul empty="true"><!--AG-->
+            <li>"independent"</li>
+         </ul>
+         <t><!--AG-->Or:</t>
+         <ul empty="true"><!--AG-->
+            <li>"editorial"</li>
+         </ul>
+      </li>
+   </ul>
 </section>
 <!--strong-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.strong">
@@ -8290,6 +8310,8 @@ include "SVG-1.2-RFC.rnc"
 
 <strong anchor="grammar.stream">stream</strong><iref item="stream element"/> =
   element stream {
+    attribute xml:base { text }?,
+    attribute xml:lang { text }?,
     ("IETF" | "IAB" | "IRTF" | "independent" | "editorial")?
   }
 
@@ -9443,6 +9465,8 @@ to the v3 schema.</t>
 +   }
 + stream =
 +   element stream {
++     attribute xml:base { text }?,
++     attribute xml:lang { text }?,
 +     ("IETF" | "IAB" | "IRTF" | "independent" | "editorial")?
 +   }
 + referencegroup =

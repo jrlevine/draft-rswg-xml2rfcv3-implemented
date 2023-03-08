@@ -2380,6 +2380,12 @@
    <define name="stream">
      <element name="stream">
        <optional>
+        <attribute name="xml:base"><?hidden-in-prose?></attribute>
+      </optional>
+      <optional>
+        <attribute name="xml:lang"><?hidden-in-prose?></attribute>
+      </optional>
+      <optional>
          <choice>
            <value>IETF</value>
            <value>IAB</value>
