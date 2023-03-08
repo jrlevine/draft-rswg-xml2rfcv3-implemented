@@ -29,7 +29,7 @@ Notes for the author:
 
 <rfc
     ipr="trust200902"
-    docName="draft-rswg-xml2rfcv3-implemented-00"
+    docName="draft-rswg-xml2rfcv3-implemented-01"
     submissionType="editorial"
     category="info"
     xml:lang="en"
@@ -66,9 +66,6 @@ Notes for the author:
     <t>
       Source code and issues list for this draft can be found at
       <eref target="&GH;"/>.
-    </t>
-    <t>
-      The changes in this draft are summarized in <xref target="changes.since.04"/>.
     </t>
   </note>
 
@@ -6669,16 +6666,6 @@ Suzanne Woolf
   </reference>
 </references>
 
-<references title="Editorial References">
-  <reference anchor='IMPNOTES'>
-    <front>
-      <title>Implementation notes for RFC7991, "The 'xml2rfc' Version 3 Vocabulary"</title>
-      <author initials='H.' surname='Levkowetz' fullname='Henrik Levkowetz'/>
-      <date month='October' year='2019' />
-    </front>
-    <seriesInfo name='Internet-Draft' value='draft-levkowetz-xml2rfc-v3-implementation-notes-10'/>
-  </reference>
-</references>
 
 <section title="Front-Page (&quot;Boilerplate&quot;) Generation" anchor="front.page">
 
@@ -9539,109 +9526,6 @@ to the v3 schema.</t>
 + start |= rfc
 <?ENDINC differences-from-v2.txt ?>
 </artwork>
-</section>
-
-<section title="Change Log" removeInRFC="true" anchor="change.log">
-
-<t>
-  The entries for -01 and -02 try to summarize the changes until the end of 2019; changes that
-  ought to be reviewed are labeled this way: <cref anchor="TBRxxx">see ...</cref>.
-</t>
-
-<section title="Since draft-iab-rfc7991bis-00" anchor="changes.since.00">
-  <ul x:when-empty="None yet.">
-    <li>Allow both "src" attribute and content on &lt;<x:ref>artwork</x:ref>&gt; again (<eref target="&GH;/issues/34">#34</eref>, <eref target="&GH;/pull/50">PR50</eref>)</li>
-    <li>Allow &lt;<x:ref>blockquote</x:ref>&gt; in &lt;<x:ref>li</x:ref>&gt; (<eref target="&GH;/issues/35">#35</eref>, <eref target="&GH;/pull/51">PR51</eref>)</li>
-    <li>Remove &lt;<x:ref>br</x:ref>&gt; element (<eref target="&GH;/issues/37">#37</eref>, <eref target="&GH;/pull/56">PR56</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.5"/>)</li>
-    <li>Replace "hanging" attribute on &lt;<x:ref>dl</x:ref>&gt; by "newline" (<eref target="&GH;/issues/38">#38</eref>, <eref target="&GH;/pull/62">PR62</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.6"/>)</li>
-    <li>Add "indent" attribute to &lt;<x:ref>dl</x:ref>&gt; <eref target="&GH;/issues/39">#39</eref>, <eref target="&GH;/pull/63">PR63</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.7"/>)</li>
-    <li>Revise &lt;<x:ref>table</x:ref>&gt; and caption alignment (<eref target="&GH;/issues/9">#9</eref> and <eref target="&GH;/issues/40">#40</eref>, <eref target="&GH;/pull/68">PR68</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.8"/>)</li>
-  </ul>
-</section>
-
-<section title="Since draft-iab-rfc7991bis-01" anchor="changes.since.01">
-  <ul x:when-empty="None yet.">
-    <li>Extend the list of allowed child elements of &lt;<x:ref>name</x:ref>&gt; (<eref target="&GH;/issues/32">#32</eref> and <eref target="&GH;/issues/40">#40</eref>, <eref target="&GH;/pull/69">PR69</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.11"/>)</li>
-    <li>Allow &lt;<x:ref>references</x:ref>&gt; elements to be nested (<eref target="&GH;/issues/47">#47</eref>, <eref target="&GH;/pull/70">PR70</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.6"/>) <cref anchor="TBR135">see <eref target="&GH;/issues/135">#135</eref></cref></li>
-    <li>Added &lt;<x:ref>artset</x:ref>&gt; (<eref target="&GH;/issues/76">#76</eref>, <eref target="&GH;/pull/89">PR89</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.1"/>) <cref anchor="TBR136">see <eref target="&GH;/issues/136">#136</eref></cref></li>
-    <li>Remove &lt;<x:ref>list</x:ref>&gt; from &lt;<x:ref>aside</x:ref>&gt;, add &lt;<x:ref>table</x:ref>&gt; to &lt;<x:ref>blockquote</x:ref>&gt; (<eref target="&GH;/issues/47">#47</eref>, <eref target="&GH;/pull/69">PR69</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.4"/>)</li>
-    <li>Remove &lt;<x:ref>iref</x:ref>&gt; from &lt;<x:ref>table</x:ref>&gt; (<eref target="&GH;/pull/92">PR92</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.9"/>) <cref anchor="TBR94">see <eref target="&GH;/issues/94">#94</eref></cref></li>
-    <li>Add attributes "asciiAbbrev" and "showOnFrontPage" to  &lt;<x:ref>organization</x:ref>&gt; (<eref target="&GH;/pull/93">PR93</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.12"/>)</li>
-    <li>Rename "quoteTitle" attribute to "quote-title" (<eref target="&GH;/pull/95">PR95</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.14"/>) <cref anchor="TBR48">see <eref target="&GH;/issues/48">#48</eref></cref></li>
-    <li>Add target attribute to &lt;<x:ref>referencegroup</x:ref>&gt; (<eref target="&GH;/pull/96">PR96</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.15"/>)</li>
-    <li>Introduce new child elements of &lt;<x:ref>postal</x:ref>&gt; (<eref target="&GH;/pull/97">PR97</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.13"/>) <cref anchor="TBR137">see <eref target="&GH;/issues/137">#137</eref></cref></li>
-    <li>Undeprecate &lt;<x:ref>seriesInfo</x:ref>&gt; inside &lt;<x:ref>reference</x:ref>&gt;, and remove special cases related to it appearing inside &lt;<x:ref>front</x:ref>&gt; (<eref target="&GH;/pull/108">PR108</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.21.3"/>)</li>
-    <li>State that descendants of unnumbered sections are unnumbered by default (<eref target="&GH;/pull/108">PR108</eref>)</li>
-    <li>Restore original definition of name attribute on &lt;<x:ref>seriesInfo</x:ref>&gt; (<eref target="&GH;/pull/108">PR108</eref>, <xref target="IMPNOTES" x:fmt="of" x:sec="3.1.21.2"/>)</li>
-    <li>Regenerate <xref target="deprecatedelements"/> based on current grammar (<eref target="&GH;/issues/111">#111</eref>)</li>
-    <li>Author is now John Levine.</li>
-  </ul>
-</section>
-
-<section title="Since draft-iab-rfc7991bis-02" anchor="changes.since.02">
-  <ul x:when-empty="None yet.">
-     <li>Update Acknowledgements.</li>
-  </ul>
-</section>
-
-<section title="Since draft-iab-rfc7991bis-03" anchor="changes.since.03">
-  <ul x:when-empty="None yet.">
-    <li>Allow multiple &lt;<x:ref>email</x:ref>&gt; elements inside &lt;<x:ref>address</x:ref>&gt; (<eref target="&GH;/issues/4"/>)</li>
-    <li>Add "markers" attribute to &lt;<x:ref>sourcecode</x:ref>&gt; element (<eref target="&GH;/issues/8"/>)</li>
-    <li>Add missing include directive for SVG grammar (<eref target="&GH;/issues/11"/>)</li>
-    <li>Remove incorrect text about deprecation of "alt" attribute on &lt;<x:ref>artwork</x:ref>&gt;, add more prose for several other deprecations on this element (<eref target="&GH;/issues/12"/>)</li>
-    <li>Undeprecate &lt;<x:ref>xref</x:ref>&gt; format "none" (<eref target="&GH;/issues/17"/>)</li>
-    <li>Editorial fixes in <xref target="includingexternal"/> (<eref target="&GH;/issues/18"/>)</li>
-    <li>State that xreffing a hidden &lt;<x:ref>cref</x:ref>&gt; is an error (<eref target="&GH;/issues/74"/>)</li>
-    <li>Fix prose and default value for &lt;<x:ref>dl</x:ref>&gt; element's "newline" attribute (<eref target="&GH;/issues/77"/>)</li>
-    <li>Add &lt;<x:ref>contact</x:ref>&gt; as a block-level element for styling contributor information (<eref target="&GH;/issues/81"/>)</li>
-    <li>Allow &lt;<x:ref>blockquote</x:ref>&gt; inside &lt;<x:ref>aside</x:ref>&gt; (<eref target="&GH;/issues/84"/>)</li>
-    <li>In &lt;<x:ref>rfc</x:ref>&gt;'s description of the "consensus" attribute, link to <xref target="attribute-consensus"/> (<eref target="&GH;/issues/88"/>)</li>
-    <li>Undeprecate metadata attributes on &lt;<x:ref>rfc</x:ref>&gt; (<eref target="&GH;/issues/122"/>)</li>
-    <li>Add "brackets" attribute on &lt;<x:ref>eref</x:ref>&gt; (<eref target="&GH;/issues/146"/>)</li>
-    <li>Add &lt;stream&gt; subelement</li>
-    <li>Add &lt;u&gt; element</li>
-    <li>Add &lt;br&gt; element</li>
-    <li>Add &lt;toc&gt; element</li>
-    <li>Add &lt;anchor&gt; element to &lt;<x:ref>author</x:ref>&gt;</li>
-    <li>Add &lt;anchor&gt; element to &lt;<x:ref>contact</x:ref>&gt;</li>
-    <li>Add &lt;seriesInfo;gt; element to &lt;<x:ref>referencegroup</x:ref>&gt;</li>
-    <li>Clarify &lt;iref&gt; preserves case in entries, but sorts in normal alphabetical order.</li>
-    <li>Allow text in &lt;<x:ref>date</x:ref>&gt; elements.</li>
-    <li>Allow &lt;<x:ref>author</x:ref>&gt; in &lt;<x:ref>section</x:ref>&gt; elements.</li>
-    <li>Deprecate most subelements of &lt;<x:ref>postal</x:ref>&gt;.</li>
-    <li>Deprecate &lt;<x:ref>relref</x:ref>&gt;.</li>
-    <li>Add "indent" attribute to  &lt;<x:ref>t</x:ref>&gt; and   &lt;<x:ref>ol</x:ref>&gt;.</li>
-    <li>Allow  &lt;<x:ref>contact</x:ref>&gt; in multiple places.</li>
-    <li>Remove &lt;<x:ref>table</x:ref>&gt; from children of &lt;<x:ref>blockquote</x:ref>&gt;.</li>
-    <li>Add "empty", "bare", and "indent" attributes to  &lt;<x:ref>li</x:ref>&gt;.</li>
-    <li>Add &lt;<x:ref>table</x:ref>&gt; to children of &lt;<x:ref>ul</x:ref>&gt;.</li>
-    <li>Add "bare" and "indent" attributes to  &lt;<x:ref>ul</x:ref>&gt;.</li>
-    <li>Allow &lt;<x:ref>aside</x:ref>&gt; and &lt;<x:ref>table</x:ref>&gt; in &lt;<x:ref>dd</x:ref>&gt; elements.</li>
-    <li>Add "section", "sectionFormat", and "relative" attributes to  &lt;<x:ref>xref</x:ref>&gt;.
-       Allow formatting elements as well as text as children.</li>
-    <li>Allow nested &lt;<x:ref>sub</x:ref>&gt; and &lt;<x:ref>sup</x:ref>&gt;.</li>
-    <li>Allow &lt;<x:ref>iref</x:ref>&gt; as child of &lt;<x:ref>table</x:ref>&gt;.</li>
-    <li>Change default "colspan" and "rowspan" from 0 to 1 in &lt;<x:ref>th</x:ref>&gt; and &lt;<x:ref>td</x:ref>&gt;.</li>
-    <li>In &lt;<x:ref>back</x:ref>&gt; allow zero or more &lt;<x:ref>references</x:ref>&gt; optional.</li>
-    <li>Update description of prep tool generated attributes.</li>
-    <li>Turn quote-title back into quoteTitle</li>
-    <li>Remove deprecated &lt;list&gt; from &lt;t&gt;.</li>
-    <li>Clarify that  &lt;<x:ref>artwork</x:ref>&gt; in &lt;<x:ref>artset</x:ref>&gt;
-       must have "type" attribute.</li>
-    <li>Move discussion to rfc-i</li>
-  </ul>
-</section>
-
-<section title="Since draft-iab-rfc7991bis-04" anchor="changes.since.04">
-   <ul x:when-empty="None yet.">
-      <li>add editorial stream</li>
-      <li>clarify &lt;<x:ref>toc</x:ref>&gt;</li>
-      <li>new name of draft, remove -bis stuff</li>
-      <li>Clarify &lt;<x:ref>xref</x:ref>&gt; section subreferences.</li>
-      <li>slugifiedName implementation.</li>
-  </ul>
-</section>
 </section>
 
 <section title="Acknowledgments" anchor="acknowledgements" numbered="false">
