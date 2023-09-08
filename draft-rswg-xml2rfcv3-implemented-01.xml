@@ -26,7 +26,7 @@ Notes for the author:
      sortRefs="true"
      category="info"
      ipr="trust200902"
-     docName="draft-rswg-xml2rfcv3-implemented-01"
+     docName="draft-rswg-xml2rfcv3-implemented-02"
      submissionType="editorial">
 <!--see https://trac.tools.ietf.org/tools/xml2rfc/trac/ticket/420-->
 <?v3xml2rfc silence="Warning: Setting consensus="true" for IETF STD document"?>
