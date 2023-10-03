@@ -7037,15 +7037,11 @@ references, all RFCs, the document might contain:
 </t>
 <artwork type="example">
 &lt;references&gt;
-    &lt;xi:include href="http://bib.ietf.org/public/rfc/
-       bibxml/reference.RFC.2119.xml"/&gt;
-    &lt;xi:include href="http://bib.ietf.org/public/rfc/
-       bibxml/reference.RFC.4869.xml"/&gt;
-    &lt;xi:include href="http://bib.ietf.org/public/rfc/
-       bibxml/reference.RFC.7169.xml"/&gt;
+    &lt;xi:include href="http://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/&gt;
+    &lt;xi:include href="http://bib.ietf.org/public/rfc/bibxml/reference.RFC.4869.xml"/&gt;
+    &lt;xi:include href="http://bib.ietf.org/public/rfc/bibxml/reference.RFC.7169.xml"/&gt;
 &lt;/references&gt;
 </artwork>
-<t>(the line breaks in the example above have been added for readability and need to be removed in practice)</t>
 <t>&lt;xi:include&gt; can be used anywhere an XML element could be used (but not where
 free text is used). For example, if three Internet-Drafts are all including a particular paragraph
 or section verbatim, that text can be kept either in a file or somewhere on the web and can be
