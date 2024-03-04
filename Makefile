@@ -1,7 +1,7 @@
 # XSLT processor of choice
 XSLT=saxon -now:$(shell date -r $< -u +%Y-%m-%dT%H:%M:%SZ)
 
-VERSION=02
+VERSION=03
 
 all: \
 	draft-rswg-xml2rfcv3-implemented.redxml \
