@@ -136,6 +136,11 @@ as well).</li>
 <li>Added "brackets" attribute to &lt;eref&gt; element.</li>
 
 <li>Added &lt;toc&gt; element, added grammar to allow authors section at the end.</li>
+
+<li>Added "editorial" value to the "submissionType" attribute of &lt;rfc&gt;
+   and the &lt;stream&gt; element for the new Editorial stream.</li>
+
+<li>Added &lt;list&gt; as a subelement of &lt;t&gt;.</li>
 </ul>
 
 </section>
@@ -765,7 +770,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       This element is a container for content that is semantically less important or tangential
       to the content that surrounds it.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), and &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>) and &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>).</t>
    <t anchor="element.aside.contents"><!--AG-->
       <xref format="none" target="grammar.aside">Content model</xref>:
     </t>
@@ -1009,7 +1014,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
    <t>
       Specifies that a block of text is a quotation.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), and &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), and &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>).</t>
    <t anchor="element.blockquote.contents"><!--AG-->
       <xref format="none" target="grammar.blockquote">Content model</xref>:
     </t>
@@ -1494,9 +1499,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
             <li><!--AG-->
                <iref item="Elements" subitem="aside"/>
                <iref item="aside element" subitem="inside dd"/>&lt;<x:ref>aside</x:ref>&gt; elements (<xref target="element.aside"/>)</li>
-            <li><!--AG-->
-               <iref item="Elements" subitem="blockquote"/>
-               <iref item="blockquote element" subitem="inside dd"/>&lt;<x:ref>blockquote</x:ref>&gt; elements (<xref target="element.blockquote"/>)</li>
             <li><!--AG-->
                <iref item="Elements" subitem="dl"/>
                <iref item="dl element" subitem="inside dd"/>&lt;<x:ref>dl</x:ref>&gt; elements (<xref target="element.dl"/>)</li>
@@ -2270,9 +2272,6 @@ in this interesting report&lt;/a&gt;.
             <li><!--AG-->
                <iref item="Elements" subitem="artwork"/>
                <iref item="artwork element" subitem="inside li"/>&lt;<x:ref>artwork</x:ref>&gt; elements (<xref target="element.artwork"/>)</li>
-            <li><!--AG-->
-               <iref item="Elements" subitem="aside"/>
-               <iref item="aside element" subitem="inside li"/>&lt;<x:ref>aside</x:ref>&gt; elements (<xref target="element.aside"/>)</li>
             <li><!--AG-->
                <iref item="Elements" subitem="blockquote"/>
                <iref item="blockquote element" subitem="inside li"/>&lt;<x:ref>blockquote</x:ref>&gt; elements (<xref target="element.blockquote"/>)</li>
@@ -3413,6 +3412,7 @@ in this interesting report&lt;/a&gt;.
          <li>"IAB"</li>
          <li>"IRTF"</li>
          <li>"independent"</li>
+         <li>"editorial"</li>
       </ul>
    </section>
    <!--rfc/@symRefs-->
@@ -3738,6 +3738,7 @@ in this interesting report&lt;/a&gt;.
          <li>"IAB"</li>
          <li>"IRTF"</li>
          <li>"independent"</li>
+         <li>"editorial"</li>
       </ul>
    </section>
    <!--seriesInfo/@value-->
@@ -3890,7 +3891,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
    <iref item="stream element" primary="true"/>
    <t>
       The document stream, one of IETF, IAB, IRTF, independent, or editorial.
-      The implementation does not yet handle "editorial."
    </t>
    <t>This element appears as a child element of &lt;<x:ref>reference</x:ref>&gt; (<xref target="element.reference"/>).</t>
    <t>
@@ -4134,6 +4134,9 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       <li><!--AG-->
          <iref item="Elements" subitem="iref"/>
          <iref item="iref element" subitem="inside t"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
+      <li><!--AG-->
+         <iref item="Elements" subitem="list"/>
+         <iref item="list element" subitem="inside t"/>&lt;<x:ref>list</x:ref>&gt; elements (<xref target="element.list"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside t"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
@@ -5563,6 +5566,7 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
       &lt;<x:ref>ul</x:ref>&gt; for list/@style "empty" or "symbols"; and
       &lt;<x:ref>ol</x:ref>&gt; for list/@style "letters", "numbers", "counter", or "format".
    </t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
    <t anchor="element.list.contents"><!--AG-->
       <xref format="none" target="grammar.list">Content model</xref>:
     </t>
@@ -7243,7 +7247,7 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute iprExtract { xsd:IDREF }?,
     [ a:defaultValue = "IETF" ]
     attribute submissionType {
-      "IETF" | "IAB" | "IRTF" | "independent"
+      "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
     }?,
     attribute docName { text }?,
     [ a:defaultValue = "false" ]
@@ -7630,6 +7634,7 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | em
      | eref
      | iref
+     | \list
      | relref
      | spanx
      | strong
@@ -7736,7 +7741,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute pn { xsd:ID }?,
     ((artset
       | artwork
-      | aside
       | blockquote
       | dl
       | figure
@@ -7805,7 +7809,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     ((artset
       | artwork
       | aside
-      | blockquote
       | dl
       | figure
       | ol
@@ -8317,7 +8320,9 @@ include "SVG-1.2-RFC.rnc"
     attribute asciiName { text }?,
     attribute asciiValue { text }?,
     attribute status { text }?,
-    attribute stream { "IETF" | "IAB" | "IRTF" | "independent" }?,
+    attribute stream {
+      "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
+    }?,
     empty
   }
 
@@ -8422,7 +8427,8 @@ to the v3 schema.</t>
       attribute iprExtract { xsd:IDREF }?,
       [ a:defaultValue = "IETF" ]
       attribute submissionType {
-        "IETF" | "IAB" | "IRTF" | "independent"
+-       "IETF" | "IAB" | "IRTF" | "independent"
++       "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
       }?,
       attribute docName { text }?,
 -     [ a:defaultValue = "en" ] attribute xml:lang { text }?,
@@ -8795,20 +8801,16 @@ to the v3 schema.</t>
 +     [ a:defaultValue = "false" ]
 +     attribute keepWithPrevious { "false" | "true" }?,
       (text
--      | \list
--      | figure
--      | xref
 +      | bcp14
 +      | br
 +      | contact
 +      | cref
 +      | em
-       | eref
-       | iref
--      | cref
++      | eref
++      | iref
+       | \list
 +      | relref
-       | spanx
--      | vspace)*
++      | spanx
 +      | strong
 +      | sub
 +      | sup
@@ -8827,8 +8829,10 @@ to the v3 schema.</t>
 +      | artwork
 +      | blockquote
 +      | dl
-+      | figure
-+      | iref
+       | figure
+-      | xref
+-      | eref
+       | iref
 +      | ol
 +      | t
 +      | table
@@ -8846,7 +8850,9 @@ to the v3 schema.</t>
 +      | (text
 +         | bcp14
 +         | br
-+         | cref
+       | cref
+-      | spanx
+-      | vspace)*
 +         | em
 +         | eref
 +         | iref
@@ -8908,7 +8914,6 @@ to the v3 schema.</t>
 +     attribute pn { xsd:ID }?,
 +     ((artset
 +       | artwork
-+       | aside
 +       | blockquote
 +       | dl
 +       | figure
@@ -8974,7 +8979,6 @@ to the v3 schema.</t>
 +     ((artset
 +       | artwork
 +       | aside
-+       | blockquote
 +       | dl
 +       | figure
 +       | ol
@@ -9470,7 +9474,9 @@ to the v3 schema.</t>
 +     attribute asciiName { text }?,
 +     attribute asciiValue { text }?,
 +     attribute status { text }?,
-+     attribute stream { "IETF" | "IAB" | "IRTF" | "independent" }?,
++     attribute stream {
++       "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
++     }?,
       empty
     }
   format =

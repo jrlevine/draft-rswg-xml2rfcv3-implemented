@@ -1,7 +1,8 @@
 # XSLT processor of choice
 XSLT=saxon -now:$(shell date -r $< -u +%Y-%m-%dT%H:%M:%SZ)
 
-VERSION=03
+DIFF=gdiff
+VERSION=04
 
 all: \
 	draft-rswg-xml2rfcv3-implemented.redxml \
@@ -9,7 +10,6 @@ all: \
 	xml2rfcv3-annotated.rng
 
 ship:	draft-rswg-xml2rfcv3-implemented.redxml
-	rm -f draft-rswg-xml2rfcv3-implemented-*.xml
 	ln -f draft-rswg-xml2rfcv3-implemented.redxml draft-rswg-xml2rfcv3-implemented-${VERSION}.xml
 
 #	draft-rswg-xml2rfcv3-implemented.unpg.txt \
@@ -50,7 +50,7 @@ xml2rfcv2 = xml2rfcv2.rnc
 differences-from-v2.txt:	xml2rfcv3.rnc $(xml2rfcv2)
 	fold -w66 -s $(xml2rfcv2) > $@.v2
 	fold -w66 -s $<  > $@.v3
-	diff -w --old-line-format='- %L' --new-line-format='+ %L' \
+	${DIFF} -w --old-line-format='- %L' --new-line-format='+ %L' \
 	--unchanged-line-format='  %L' -d $@.v2 $@.v3 \
 	| sed "s/\&/\&amp;/g" | tr -d "\\015" > $@
 	rm -f $@.v2 $@.v3
