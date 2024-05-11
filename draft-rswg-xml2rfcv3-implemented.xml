@@ -209,55 +209,6 @@ do pagination that they should try to keep the paragraph with the next/previous 
 
 </section>
 
-<section title="Additional Changes from v2">
-
-<ul>
-
-<li>Allow non-ASCII characters in the format; the characters that are actually allowed will
-be determined by the RFC Series Editor.</li>
-
-<li>Allow &lt;<x:ref>artwork</x:ref>&gt; and &lt;<x:ref>sourcecode</x:ref>&gt; to be used on
-their own in &lt;<x:ref>section</x:ref>&gt;
-(no longer confine them to a figure).</li>
-
-<li>Give more specifics of handling the "type" attribute in &lt;<x:ref>artwork</x:ref>&gt;.</li>
-
-<li>Allow &lt;<x:ref>strong</x:ref>&gt;, &lt;<x:ref>em</x:ref>&gt;,
-&lt;<x:ref>tt</x:ref>&gt;, &lt;<x:ref>eref</x:ref>&gt;, and
-&lt;<x:ref>xref</x:ref>&gt; in &lt;<x:ref>cref</x:ref>&gt;.</li>
-
-<li>Allow the sub-elements inside a &lt;<x:ref>reference</x:ref>&gt; to be in any order.</li>
-
-<li>Turn off the autogeneration of anchors in &lt;<x:ref>cref</x:ref>&gt; because there is
-no use case for them that cannot be achieved in other ways.</li>
-
-<li>Allow more than one &lt;<x:ref>artwork</x:ref>&gt;, or more than one
-&lt;<x:ref>sourcecode</x:ref>&gt;, in &lt;<x:ref>figure</x:ref>&gt;.</li>
-
-<li>In &lt;<x:ref>front</x:ref>&gt;, make &lt;<x:ref>date</x:ref>&gt; optional.</li>
-
-<li>In &lt;<x:ref>date</x:ref>&gt;, add restrictions to the "date" and "year" attributes
-when used in the &lt;<x:ref>front</x:ref>&gt; for the document's boilerplate text.</li>
-
-<li>In &lt;<x:ref>postal</x:ref>&gt;, allow the sub-elements to be in any order. Also allow the inclusion
-of the new &lt;<x:ref>postalLine</x:ref>&gt; instead of the older elements.</li>
-
-<li>In &lt;<x:ref>section</x:ref>&gt;, restrict the names of the anchors that can be used on
-some types of sections.</li>
-
-<li>Make &lt;<x:ref>seriesInfo</x:ref>&gt; a child of &lt;<x:ref>front</x:ref>&gt;,
-and deprecated it as a child of &lt;<x:ref>reference</x:ref>&gt;.</li>
-
-<li>&lt;<x:ref>t</x:ref>&gt; now only contains non-block elements, so it no longer contains
-&lt;<x:ref>figure</x:ref>&gt; elements.</li>
-
-<li>Do not generate the grammar from a DTD, but instead get it directly from the RELAX Next Generation (RNG) grammar
-<xref target="RNG"/>.</li>
-
-</ul>
-
-</section>
-
 </section>
 
 <section title="Syntax Notation" anchor="syntax.notation">
