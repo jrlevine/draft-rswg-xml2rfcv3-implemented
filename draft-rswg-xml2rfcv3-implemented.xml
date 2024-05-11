@@ -209,16 +209,6 @@ do pagination that they should try to keep the paragraph with the next/previous 
 
 </section>
 
-<section title="Elements and Attributes Deprecated from v2" anchor="deprecated_features">
-
-<t>Deprecated elements and attributes are legacy vocabulary from v2 that are supported for input
-to v3 tools. They are likely to be removed from those tools in the future.
-Deprecated attributes are still listed in <xref target="elements"/>, and deprecated elements are listed in <xref target="deprecatedelements"/>.
-See <xref target="tools"/> for more information on tools and how they will handle
-deprecated features.</t>
-
-</section>
-
 <section title="Additional Changes from v2">
 
 <ul>
