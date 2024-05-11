@@ -876,13 +876,11 @@
           <ref name="eref"/>
           <ref name="iref"/>
           <ref name="relref"/>
-          <ref name="spanx"/>
           <ref name="strong"/>
           <ref name="sub"/>
           <ref name="sup"/>
           <ref name="tt"/>
           <ref name="u"/>
-          <ref name="vspace"/>
           <ref name="xref"/>
         </choice>
       </zeroOrMore>
@@ -1584,42 +1582,6 @@
       </zeroOrMore>
     </element>
   </define>
-  <define name="spanx">
-    <element name="spanx">
-      <optional>
-        <attribute name="xml:base"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="xml:lang"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="xml:space" a:defaultValue="preserve">
-          <choice>
-            <value>default</value>
-            <value>preserve</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="style" a:defaultValue="emph"/>
-      </optional>
-      <text/>
-    </element>
-  </define>
-  <define name="vspace">
-    <element name="vspace">
-      <optional>
-        <attribute name="xml:base"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="xml:lang"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="blankLines" a:defaultValue="0"/>
-      </optional>
-      <empty/>
-    </element>
-  </define>
   <define name="figure">
     <element name="figure">
       <optional>
@@ -1755,7 +1717,6 @@
           <ref name="eref"/>
           <ref name="iref"/>
           <ref name="relref"/>
-          <ref name="spanx"/>
           <ref name="strong"/>
           <ref name="sub"/>
           <ref name="sup"/>
@@ -2104,7 +2065,6 @@
           <ref name="cref"/>
           <ref name="eref"/>
           <ref name="iref"/>
-          <ref name="spanx"/>
           <ref name="xref"/>
         </choice>
       </zeroOrMore>
@@ -2215,7 +2175,6 @@
           <ref name="cref"/>
           <ref name="eref"/>
           <ref name="iref"/>
-          <ref name="spanx"/>
           <ref name="xref"/>
         </choice>
       </zeroOrMore>
@@ -2458,7 +2417,6 @@
           <ref name="eref"/>
           <ref name="iref"/>
           <ref name="relref"/>
-          <ref name="spanx"/>
           <ref name="strong"/>
           <ref name="sub"/>
           <ref name="sup"/>

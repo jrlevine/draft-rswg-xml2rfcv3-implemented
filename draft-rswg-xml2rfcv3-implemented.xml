@@ -219,13 +219,6 @@ deprecated features.</t>
 
 <ul>
 
-<li>Deprecate &lt;<x:ref>spanx</x:ref>&gt;; replace it with &lt;<x:ref>strong</x:ref>&gt;,
-&lt;<x:ref>em</x:ref>&gt;,
-and &lt;<x:ref>tt</x:ref>&gt;.</li>
-
-<li>Deprecate &lt;<x:ref>vspace</x:ref>&gt; because the major use for it,
-creating pseudo-paragraph-breaks in lists, is now handled properly.</li>
-
 <li>Deprecate &lt;<x:ref>texttable</x:ref>&gt;, &lt;<x:ref>ttcol</x:ref>&gt;, and &lt;<x:ref>c</x:ref>&gt;;
 replace them with the new table elements (&lt;<x:ref>table</x:ref>&gt; and the elements that can be
 contained within it).</li>
@@ -473,9 +466,6 @@ the appendices for a complete description of these attributes.
       <li><!--AG-->
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside annotation"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside annotation"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="strong"/>
          <iref item="strong element" subitem="inside annotation"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
@@ -4135,9 +4125,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside t"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside t"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
          <iref item="Elements" subitem="strong"/>
          <iref item="strong element" subitem="inside t"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
       <li><!--AG-->
@@ -4152,9 +4139,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       <li><!--AG-->
          <iref item="Elements" subitem="u"/>
          <iref item="u element" subitem="inside t"/>&lt;<x:ref>u</x:ref>&gt; elements (<xref target="element.u"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="vspace"/>
-         <iref item="vspace element" subitem="inside t"/>&lt;<x:ref>vspace</x:ref>&gt; elements (<xref target="element.vspace"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="xref"/>
          <iref item="xref element" subitem="inside t"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
@@ -5377,9 +5361,6 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
          <iref item="Elements" subitem="iref"/>
          <iref item="iref element" subitem="inside c"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside c"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
          <iref item="Elements" subitem="xref"/>
          <iref item="xref element" subitem="inside c"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
    </ul>
@@ -5599,9 +5580,6 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
          <iref item="Elements" subitem="iref"/>
          <iref item="iref element" subitem="inside postamble"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside postamble"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
          <iref item="Elements" subitem="xref"/>
          <iref item="xref element" subitem="inside postamble"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
    </ul>
@@ -5642,9 +5620,6 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
       <li><!--AG-->
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside preamble"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside preamble"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="strong"/>
          <iref item="strong element" subitem="inside preamble"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
@@ -5927,48 +5902,6 @@ for an overview.
       </t>
    </section>
 </section>
-<!--spanx-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.spanx">
-   <name>
-      <tt>&lt;spanx&gt;</tt>
-   </name>
-   <x:anchor-alias value="spanx"/>
-   <iref item="Elements" subitem="spanx" primary="true"/>
-   <iref item="spanx element" primary="true"/>
-   <t>
-      Deprecated.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), and &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
-   <t anchor="element.spanx.contents"><!--AG-->
-      <xref format="none" target="grammar.spanx">Content model</xref>: only text content.</t>
-   <!--spanx/@style-->
-   <section anchor="element.spanx.attribute.style" toc="exclude">
-      <name>"style" Attribute</name>
-      <iref item="Attributes" subitem="style"/>
-      <iref item="spanx element" subitem="style attribute"/>
-      <iref item="style attribute" subitem="in spanx element"/>
-      <t>
-         Deprecated. Instead of &lt;spanx style="emph"&gt;, use &lt;<x:ref>em</x:ref>&gt;;
-      instead of &lt;spanx style="strong"&gt;, use &lt;<x:ref>strong</x:ref>&gt;;
-      instead of &lt;spanx style="verb"&gt;, use &lt;tt&gt;.
-      </t>
-   </section>
-   <!--spanx/@xml:space-->
-   <section anchor="element.spanx.attribute.xml-space" toc="exclude">
-      <name>"xml:space" Attribute</name>
-      <iref item="Attributes" subitem="xml:space"/>
-      <iref item="spanx element" subitem="xml:space attribute"/>
-      <iref item="xml:space attribute" subitem="in spanx element"/>
-      <t>
-         Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"default"</li>
-         <li>"preserve" (default)</li>
-      </ul>
-   </section>
-</section>
 <!--street-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.street">
    <name>
@@ -6148,34 +6081,6 @@ for an overview.
       <iref item="Attributes" subitem="width"/>
       <iref item="ttcol element" subitem="width attribute"/>
       <iref item="width attribute" subitem="in ttcol element"/>
-      <t>
-         Deprecated.
-      </t>
-   </section>
-</section>
-<!--vspace-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.vspace">
-   <name>
-      <tt>&lt;vspace&gt;</tt>
-   </name>
-   <x:anchor-alias value="vspace"/>
-   <iref item="Elements" subitem="vspace" primary="true"/>
-   <iref item="vspace element" primary="true"/>
-   <t>
-      Deprecated.  In earlier versions of this format, &lt;vspace&gt; was often
-      used to get an extra blank line in a list element; in the v3 vocabulary,
-      that can be done instead by using multiple &lt;<x:ref>t</x:ref>&gt; elements inside the
-      &lt;<x:ref>li</x:ref>&gt; element. Other uses have no direct replacement.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
-   <t anchor="element.vspace.contents"><!--AG-->
-      <xref format="none" target="grammar.vspace">Content model</xref>: this element does not have any contents.</t>
-   <!--vspace/@blankLines-->
-   <section anchor="element.vspace.attribute.blankLines" toc="exclude">
-      <name>"blankLines" Attribute</name>
-      <iref item="Attributes" subitem="blankLines"/>
-      <iref item="vspace element" subitem="blankLines attribute"/>
-      <iref item="blankLines attribute" subitem="in vspace element"/>
       <t>
          Deprecated.
       </t>
@@ -7576,13 +7481,11 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | eref
      | iref
      | relref
-     | spanx
      | strong
      | sub
      | sup
      | tt
      | u
-     | vspace
      | xref)*
   }
 
@@ -7925,24 +7828,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | xref)*
   }
 
-<strong anchor="grammar.spanx">spanx</strong><iref item="spanx element"/> =
-  element spanx {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    [ a:defaultValue = "preserve" ]
-    attribute xml:space { "default" | "preserve" }?,
-    [ a:defaultValue = "emph" ] attribute style { text }?,
-    text
-  }
-
-<strong anchor="grammar.vspace">vspace</strong><iref item="vspace element"/> =
-  element vspace {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    [ a:defaultValue = "0" ] attribute blankLines { text }?,
-    empty
-  }
-
 <strong anchor="grammar.figure">figure</strong><iref item="figure element"/> =
   element figure {
     attribute xml:base { text }?,
@@ -7992,7 +7877,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | eref
      | iref
      | relref
-     | spanx
      | strong
      | sub
      | sup
@@ -8134,7 +8018,7 @@ include "SVG-1.2-RFC.rnc"
   element postamble {
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
-    (text | cref | eref | iref | spanx | xref)*
+    (text | cref | eref | iref | xref)*
   }
 
 <strong anchor="grammar.texttable">texttable</strong><iref item="texttable element"/> =
@@ -8170,7 +8054,7 @@ include "SVG-1.2-RFC.rnc"
   element c {
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
-    (text | cref | eref | iref | spanx | xref)*
+    (text | cref | eref | iref | xref)*
   }
 
 <strong anchor="grammar.bcp14">bcp14</strong><iref item="bcp14 element"/> =
@@ -8276,7 +8160,6 @@ include "SVG-1.2-RFC.rnc"
      | eref
      | iref
      | relref
-     | spanx
      | strong
      | sub
      | sup
