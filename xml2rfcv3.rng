@@ -875,7 +875,6 @@
           <ref name="em"/>
           <ref name="eref"/>
           <ref name="iref"/>
-          <ref name="list"/>
           <ref name="relref"/>
           <ref name="spanx"/>
           <ref name="strong"/>
@@ -979,33 +978,6 @@
           </choice>
         </oneOrMore>
       </choice>
-    </element>
-  </define>
-  <define name="list">
-    <element name="list">
-      <optional>
-        <attribute name="xml:base"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="xml:lang"><?hidden-in-prose?></attribute>
-      </optional>
-      <optional>
-        <attribute name="style" a:defaultValue="empty"/>
-      </optional>
-      <optional>
-        <attribute name="hangIndent"/>
-      </optional>
-      <optional>
-        <attribute name="counter"/>
-      </optional>
-      <optional>
-	 <attribute name="pn"><?hidden-in-prose?>
-	    <data type="ID"/>
-	 </attribute>
-      </optional>
-      <oneOrMore>
-        <ref name="t"/>
-      </oneOrMore>
     </element>
   </define>
   <define name="ol">
