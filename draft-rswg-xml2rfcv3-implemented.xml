@@ -217,23 +217,6 @@ Deprecated attributes are still listed in <xref target="elements"/>, and depreca
 See <xref target="tools"/> for more information on tools and how they will handle
 deprecated features.</t>
 
-<ul>
-
-<li>Deprecate the "title" attribute in &lt;<x:ref>section</x:ref>&gt;,  &lt;<x:ref>note</x:ref>&gt;,
-&lt;<x:ref>figure</x:ref>&gt;, &lt;<x:ref>references</x:ref>&gt;, and 
-in favor of the new &lt;<x:ref>name</x:ref>&gt;.</li>
-
-<li>Deprecate the "alt" and "src" attributes in &lt;<x:ref>figure</x:ref>&gt;
-because they overlap with the attributes in &lt;<x:ref>artwork</x:ref>&gt;.</li>
-
-<li>Deprecate the "xml:space" attribute in &lt;<x:ref>artwork</x:ref>&gt; because there was only one useful value.
-Deprecate the "height" and "width" attributes in both &lt;<x:ref>artwork</x:ref>&gt; and &lt;<x:ref>figure</x:ref>&gt;
-because they are not needed for the new output formats.</li>
-
-<li>Deprecate the "pageno" attribute in &lt;<x:ref>xref</x:ref>&gt; because it was unused in v2.</li>
-
-</ul>
-
 </section>
 
 <section title="Additional Changes from v2">
@@ -634,16 +617,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         Document-wide unique identifier for this artwork.
       </t>
    </section>
-   <!--artwork/@height-->
-   <section anchor="element.artwork.attribute.height" toc="exclude">
-      <name>"height" Attribute</name>
-      <iref item="Attributes" subitem="height"/>
-      <iref item="artwork element" subitem="height attribute"/>
-      <iref item="height attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-      </t>
-   </section>
    <!--artwork/@name-->
    <section anchor="element.artwork.attribute.name" toc="exclude">
       <name>"name" Attribute</name>
@@ -706,26 +679,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
          <li>binary-art</li>
          <li>svg</li>
       </ul>
-   </section>
-   <!--artwork/@width-->
-   <section anchor="element.artwork.attribute.width" toc="exclude">
-      <name>"width" Attribute</name>
-      <iref item="Attributes" subitem="width"/>
-      <iref item="artwork element" subitem="width attribute"/>
-      <iref item="width attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-      </t>
-   </section>
-   <!--artwork/@xml:space-->
-   <section anchor="element.artwork.attribute.xml-space" toc="exclude">
-      <name>"xml:space" Attribute</name>
-      <iref item="Attributes" subitem="xml:space"/>
-      <iref item="artwork element" subitem="xml:space attribute"/>
-      <iref item="xml:space attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-       </t>
    </section>
 </section>
 <!--aside-->
@@ -1985,17 +1938,6 @@ in this interesting report&lt;/a&gt;.
          <li>"right"</li>
       </ul>
    </section>
-   <!--figure/@alt-->
-   <section anchor="element.figure.attribute.alt" toc="exclude">
-      <name>"alt" Attribute</name>
-      <iref item="Attributes" subitem="alt"/>
-      <iref item="figure element" subitem="alt attribute"/>
-      <iref item="alt attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "alt" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.alt"/>).
-      </t>
-   </section>
    <!--figure/@anchor-->
    <section anchor="element.figure.attribute.anchor" toc="exclude">
       <name>"anchor" Attribute</name>
@@ -2004,28 +1946,6 @@ in this interesting report&lt;/a&gt;.
       <iref item="anchor attribute" subitem="in figure element"/>
       <t>
         Document-wide unique identifier for this figure.
-      </t>
-   </section>
-   <!--figure/@height-->
-   <section anchor="element.figure.attribute.height" toc="exclude">
-      <name>"height" Attribute</name>
-      <iref item="Attributes" subitem="height"/>
-      <iref item="figure element" subitem="height attribute"/>
-      <iref item="height attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "height" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.height"/>).
-      </t>
-   </section>
-   <!--figure/@src-->
-   <section anchor="element.figure.attribute.src" toc="exclude">
-      <name>"src" Attribute</name>
-      <iref item="Attributes" subitem="src"/>
-      <iref item="figure element" subitem="src attribute"/>
-      <iref item="src attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "src" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.src"/>).
       </t>
    </section>
    <!--figure/@suppress-title-->
@@ -2042,27 +1962,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--figure/@title-->
-   <section anchor="element.figure.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="figure element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in figure element"/>
-      <t>
-            Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
-      </t>
-   </section>
-   <!--figure/@width-->
-   <section anchor="element.figure.attribute.width" toc="exclude">
-      <name>"width" Attribute</name>
-      <iref item="Attributes" subitem="width"/>
-      <iref item="figure element" subitem="width attribute"/>
-      <iref item="width attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "width" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.width"/>).
-      </t>
    </section>
 </section>
 <!--front-->
@@ -2525,16 +2424,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--note/@title-->
-   <section anchor="element.note.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="note element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in note element"/>
-      <t>
-            Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
-         </t>
    </section>
 </section>
 <!--ol-->
@@ -3127,16 +3016,6 @@ in this interesting report&lt;/a&gt;.
          An optional user-supplied identifier for this set of references.
       </t>
    </section>
-   <!--references/@title-->
-   <section anchor="element.references.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="references element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in references element"/>
-      <t>
-         Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
-      </t>
-   </section>
 </section>
 <!--rfc-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.rfc">
@@ -3566,16 +3445,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--section/@title-->
-   <section anchor="element.section.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="section element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in section element"/>
-      <t>
-         Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead. 
-      </t>
    </section>
    <!--section/@toc-->
    <section anchor="element.section.attribute.toc" toc="exclude">
@@ -5174,21 +5043,6 @@ See &lt;a href="#overview"&gt;section above&lt;/a&gt; for an overview.
          <li>"title"</li>
          <li>"counter"</li>
          <li>"none"</li>
-      </ul>
-   </section>
-   <!--xref/@pageno-->
-   <section anchor="element.xref.attribute.pageno" toc="exclude">
-      <name>"pageno" Attribute</name>
-      <iref item="Attributes" subitem="pageno"/>
-      <iref item="xref element" subitem="pageno attribute"/>
-      <iref item="pageno attribute" subitem="in xref element"/>
-      <t>
-            Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"true"</li>
-         <li>"false" (default)</li>
       </ul>
    </section>
    <!--xref/@relative-->
@@ -6994,7 +6848,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
   element note {
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
-    attribute title { text }?,
     attribute pn { xsd:ID }?,
     [ a:defaultValue = "false" ]
     attribute removeInRFC { "true" | "false" }?,
@@ -7029,7 +6882,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    attribute title { text }?,
     [ a:defaultValue = "true" ]
     attribute numbered { "true" | "false" }?,
     [ a:defaultValue = "default" ]
@@ -7290,8 +7142,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
     attribute target { xsd:IDREF },
-    [ a:defaultValue = "false" ]
-    attribute pageno { "true" | "false" }?,
     [ a:defaultValue = "default" ]
     attribute format { "default" | "title" | "counter" | "none" }?,
     attribute derivedContent { text }?,
@@ -7455,16 +7305,11 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    [ a:defaultValue = "" ] attribute title { text }?,
     [ a:defaultValue = "false" ]
     attribute suppress-title { "true" | "false" }?,
-    attribute src { text }?,
     attribute originalSrc { text }?,
     [ a:defaultValue = "left" ]
     attribute align { "left" | "center" | "right" }?,
-    [ a:defaultValue = "" ] attribute alt { text }?,
-    [ a:defaultValue = "" ] attribute width { text }?,
-    [ a:defaultValue = "" ] attribute height { text }?,
     name?,
     iref*,
     (artset | artwork | sourcecode)+
@@ -7500,15 +7345,12 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    attribute xml:space { text }?,
     [ a:defaultValue = "" ] attribute name { text }?,
     [ a:defaultValue = "" ] attribute type { text }?,
     attribute src { text }?,
     [ a:defaultValue = "left" ]
     attribute align { "left" | "center" | "right" }?,
     [ a:defaultValue = "" ] attribute alt { text }?,
-    [ a:defaultValue = "" ] attribute width { text }?,
-    [ a:defaultValue = "" ] attribute height { text }?,
     attribute originalSrc { text }?,
     (text* | svg)
   }
@@ -7644,7 +7486,6 @@ include "SVG-1.2-RFC.rnc"
     attribute xml:lang { text }?,
     attribute pn { xsd:ID }?,
     attribute anchor { xsd:ID }?,
-    attribute title { text }?,
     name?,
     (references+ | (reference | referencegroup)*)
   }

@@ -628,9 +628,6 @@
         <attribute name="xml:lang"><?hidden-in-prose?></attribute>
       </optional>
       <optional>
-        <attribute name="title"/>
-      </optional>
-      <optional>
 	 <attribute name="pn"><?hidden-in-prose?>
 	 <data type="ID"/>
 	 </attribute>
@@ -712,9 +709,6 @@
 	 <attribute name="pn"><?hidden-in-prose?>
 	   <data type="ID"/>
 	 </attribute>
-      </optional>
-      <optional>
-        <attribute name="title"/>
       </optional>
       <optional>
         <attribute name="numbered" a:defaultValue="true">
@@ -1264,14 +1258,6 @@
         <data type="IDREF"/>
       </attribute>
       <optional>
-        <attribute name="pageno" a:defaultValue="false">
-          <choice>
-            <value>true</value>
-            <value>false</value>
-          </choice>
-        </attribute>
-      </optional>
-      <optional>
         <attribute name="format" a:defaultValue="default">
           <choice>
             <value>default</value>
@@ -1586,18 +1572,12 @@
 	 </attribute>
       </optional>
       <optional>
-        <attribute name="title" a:defaultValue=""/>
-      </optional>
-      <optional>
         <attribute name="suppress-title" a:defaultValue="false">
           <choice>
             <value>true</value>
             <value>false</value>
           </choice>
         </attribute>
-      </optional>
-      <optional>
-        <attribute name="src"/>
       </optional>
       <optional>
         <attribute name="originalSrc"><?hidden-in-prose?></attribute>
@@ -1610,15 +1590,6 @@
             <value>right</value>
           </choice>
         </attribute>
-      </optional>
-      <optional>
-        <attribute name="alt" a:defaultValue=""/>
-      </optional>
-      <optional>
-        <attribute name="width" a:defaultValue=""/>
-      </optional>
-      <optional>
-        <attribute name="height" a:defaultValue=""/>
       </optional>
       <optional>
         <ref name="name"/>
@@ -1720,9 +1691,6 @@
           <data type="ID"/>
 	 </attribute>
       </optional>
-     <optional>
-        <attribute name="xml:space"/>
-      </optional>
       <optional>
         <attribute name="name" a:defaultValue=""/>
       </optional>
@@ -1743,12 +1711,6 @@
       </optional>
       <optional>
         <attribute name="alt" a:defaultValue=""/>
-      </optional>
-      <optional>
-        <attribute name="width" a:defaultValue=""/>
-      </optional>
-      <optional>
-        <attribute name="height" a:defaultValue=""/>
       </optional>
       <optional>
         <attribute name="originalSrc"><?hidden-in-prose?></attribute>
@@ -2064,9 +2026,6 @@
         <attribute name="anchor">
           <data type="ID"/>
         </attribute>
-      </optional>
-      <optional>
-        <attribute name="title"/>
       </optional>
       <optional>
         <ref name="name"/>
