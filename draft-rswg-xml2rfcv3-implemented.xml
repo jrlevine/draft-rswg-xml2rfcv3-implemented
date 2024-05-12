@@ -94,6 +94,9 @@ In this document, the term "format" is used when describing types of documents, 
 XML and HTML. The term "representation" is used when talking about a specific instantiation
 of a format, such as an XML document or an HTML document that was created by an XML document.
 </t>
+<t>
+In this document, "v2" refers to the format defined <xref target="RFC7749"/>, which is no longer used in production.
+</t>
 
 <section title="Differences from RFC 7991 in This Document" anchor="differences.from.rfc.7991">
 
@@ -124,7 +127,7 @@ inner &lt;references&gt; for normative references and an inner &lt;references&gt
 to hold informative references.</li>
 
 <li>Un-deprecated metadata attributes on the &lt;<x:ref>rfc</x:ref>&gt; element
-(with the intent to restore v2 semantics of &lt;<x:ref>seriesInfo</x:ref>&gt;
+(with the intent to restore v2 (<xref target="RFC7749"/>) semantics of &lt;<x:ref>seriesInfo</x:ref>&gt;
 as well).</li>
 
 <li>Added &lt;contact&gt; element.</li>
@@ -150,7 +153,7 @@ as well).</li>
 <ul>
 
 <li>Add "sortRefs", "symRefs", "tocDepth", and "tocInclude" attributes to &lt;<x:ref>rfc</x:ref>&gt;
-to cover Processing Instructions (PIs) that were in v2 that are still needed in the grammar.
+to cover Processing Instructions (PIs) that were in v2 (<xref target="RFC7749"/>) that are still needed in the grammar.
 Add "prepTime" to indicate the time that the XML went through a preparation step.
 Add "version" to indicate the version of xml2rfc vocabulary used in the document.
 Add "scripts" to indicate which scripts are needed to render the document.
@@ -206,106 +209,6 @@ do pagination that they should try to keep the paragraph with the next/previous 
       <li>Deprecate &lt;<x:ref>relref</x:ref>&gt;, in favor of &lt;<x:ref>xref</x:ref>&gt;.
       </li>
    </ul>
-
-</section>
-
-<section title="Elements and Attributes Deprecated from v2" anchor="deprecated_features">
-
-<t>Deprecated elements and attributes are legacy vocabulary from v2 that are supported for input
-to v3 tools. They are likely to be removed from those tools in the future.
-Deprecated attributes are still listed in <xref target="elements"/>, and deprecated elements are listed in <xref target="deprecatedelements"/>.
-See <xref target="tools"/> for more information on tools and how they will handle
-deprecated features.</t>
-
-<ul>
-
-<li>Deprecate &lt;<x:ref>list</x:ref>&gt; in favor of &lt;<x:ref>dl</x:ref>&gt;, &lt;<x:ref>ul</x:ref>&gt;,
-and &lt;<x:ref>ol</x:ref>&gt;.</li>
-
-<li>Deprecate &lt;<x:ref>spanx</x:ref>&gt;; replace it with &lt;<x:ref>strong</x:ref>&gt;,
-&lt;<x:ref>em</x:ref>&gt;,
-and &lt;<x:ref>tt</x:ref>&gt;.</li>
-
-<li>Deprecate &lt;<x:ref>vspace</x:ref>&gt; because the major use for it,
-creating pseudo-paragraph-breaks in lists, is now handled properly.</li>
-
-<li>Deprecate &lt;<x:ref>texttable</x:ref>&gt;, &lt;<x:ref>ttcol</x:ref>&gt;, and &lt;<x:ref>c</x:ref>&gt;;
-replace them with the new table elements (&lt;<x:ref>table</x:ref>&gt; and the elements that can be
-contained within it).</li>
-
-<li>Deprecate &lt;<x:ref>facsimile</x:ref>&gt; because it is rarely used.</li>
-
-<li>Deprecate &lt;<x:ref>format</x:ref>&gt; because it is not useful and has caused surprise for authors in the past.
-If the goal is to provide a single URI (Uniform Resource Identifier) for
-a reference, use the "target" attribute in &lt;<x:ref>reference</x:ref>&gt; instead.</li>
-
-<li>Deprecate &lt;<x:ref>preamble</x:ref>&gt; and &lt;<x:ref>postamble</x:ref>&gt; in favor of 
-simply using &lt;<x:ref>t</x:ref>&gt; before or after the figure. This also deprecates the "align" attribute in
-&lt;<x:ref>figure</x:ref>&gt;.</li>
-
-<li>Deprecate the "title" attribute in &lt;<x:ref>section</x:ref>&gt;,  &lt;<x:ref>note</x:ref>&gt;,
-&lt;<x:ref>figure</x:ref>&gt;, &lt;<x:ref>references</x:ref>&gt;, and 
-&lt;<x:ref>texttable</x:ref>&gt; in favor of the new &lt;<x:ref>name</x:ref>&gt;.</li>
-
-<li>Deprecate the "alt" and "src" attributes in &lt;<x:ref>figure</x:ref>&gt;
-because they overlap with the attributes in &lt;<x:ref>artwork</x:ref>&gt;.</li>
-
-<li>Deprecate the "xml:space" attribute in &lt;<x:ref>artwork</x:ref>&gt; because there was only one useful value.
-Deprecate the "height" and "width" attributes in both &lt;<x:ref>artwork</x:ref>&gt; and &lt;<x:ref>figure</x:ref>&gt;
-because they are not needed for the new output formats.</li>
-
-<li>Deprecate the "pageno" attribute in &lt;<x:ref>xref</x:ref>&gt; because it was unused in v2.</li>
-
-</ul>
-
-</section>
-
-<section title="Additional Changes from v2">
-
-<ul>
-
-<li>Allow non-ASCII characters in the format; the characters that are actually allowed will
-be determined by the RFC Series Editor.</li>
-
-<li>Allow &lt;<x:ref>artwork</x:ref>&gt; and &lt;<x:ref>sourcecode</x:ref>&gt; to be used on
-their own in &lt;<x:ref>section</x:ref>&gt;
-(no longer confine them to a figure).</li>
-
-<li>Give more specifics of handling the "type" attribute in &lt;<x:ref>artwork</x:ref>&gt;.</li>
-
-<li>Allow &lt;<x:ref>strong</x:ref>&gt;, &lt;<x:ref>em</x:ref>&gt;,
-&lt;<x:ref>tt</x:ref>&gt;, &lt;<x:ref>eref</x:ref>&gt;, and
-&lt;<x:ref>xref</x:ref>&gt; in &lt;<x:ref>cref</x:ref>&gt;.</li>
-
-<li>Allow the sub-elements inside a &lt;<x:ref>reference</x:ref>&gt; to be in any order.</li>
-
-<li>Turn off the autogeneration of anchors in &lt;<x:ref>cref</x:ref>&gt; because there is
-no use case for them that cannot be achieved in other ways.</li>
-
-<li>Allow more than one &lt;<x:ref>artwork</x:ref>&gt;, or more than one
-&lt;<x:ref>sourcecode</x:ref>&gt;, in &lt;<x:ref>figure</x:ref>&gt;.</li>
-
-<li>In &lt;<x:ref>front</x:ref>&gt;, make &lt;<x:ref>date</x:ref>&gt; optional.</li>
-
-<li>In &lt;<x:ref>date</x:ref>&gt;, add restrictions to the "date" and "year" attributes
-when used in the &lt;<x:ref>front</x:ref>&gt; for the document's boilerplate text.</li>
-
-<li>In &lt;<x:ref>postal</x:ref>&gt;, allow the sub-elements to be in any order. Also allow the inclusion
-of the new &lt;<x:ref>postalLine</x:ref>&gt; instead of the older elements.</li>
-
-<li>In &lt;<x:ref>section</x:ref>&gt;, restrict the names of the anchors that can be used on
-some types of sections.</li>
-
-<li>Make &lt;<x:ref>seriesInfo</x:ref>&gt; a child of &lt;<x:ref>front</x:ref>&gt;,
-and deprecated it as a child of &lt;<x:ref>reference</x:ref>&gt;.</li>
-
-<li>&lt;<x:ref>t</x:ref>&gt; now only contains non-block elements, so it no longer contains
-&lt;<x:ref>figure</x:ref>&gt; elements.</li>
-
-<li>Do not generate the grammar from a DTD, but instead get it directly from the RELAX Next Generation (RNG) grammar
-<xref target="RNG"/>.</li>
-
-</ul>
 
 </section>
 
@@ -429,9 +332,6 @@ the appendices for a complete description of these attributes.
          <iref item="Elements" subitem="phone"/>
          <iref item="phone element" subitem="inside address"/>One optional &lt;<x:ref>phone</x:ref>&gt; element (<xref target="element.phone"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="facsimile"/>
-         <iref item="facsimile element" subitem="inside address"/>One optional &lt;<x:ref>facsimile</x:ref>&gt; element (<xref target="element.facsimile"/>)</li>
-      <li><!--AG-->
          <iref item="Elements" subitem="email"/>
          <iref item="email element" subitem="inside address"/>Optional &lt;<x:ref>email</x:ref>&gt; elements (<xref target="element.email"/>)</li>
       <li><!--AG-->
@@ -476,9 +376,6 @@ the appendices for a complete description of these attributes.
       <li><!--AG-->
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside annotation"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside annotation"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="strong"/>
          <iref item="strong element" subitem="inside annotation"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
@@ -575,7 +472,7 @@ the appendices for a complete description of these attributes.
       prose that describes the included image in sufficient detail.
    </t>
    <t>
-      In <xref target="RFC7749"/>, the &lt;artwork&gt; element was also used for source code and formal
+      In v2 (<xref target="RFC7749"/>), the &lt;artwork&gt; element was also used for source code and formal
       languages; in v3, this is now done with &lt;<x:ref>sourcecode</x:ref>&gt;.
    </t>
    <t>
@@ -664,16 +561,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         Document-wide unique identifier for this artwork.
       </t>
    </section>
-   <!--artwork/@height-->
-   <section anchor="element.artwork.attribute.height" toc="exclude">
-      <name>"height" Attribute</name>
-      <iref item="Attributes" subitem="height"/>
-      <iref item="artwork element" subitem="height attribute"/>
-      <iref item="height attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-      </t>
-   </section>
    <!--artwork/@name-->
    <section anchor="element.artwork.attribute.name" toc="exclude">
       <name>"name" Attribute</name>
@@ -736,26 +623,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
          <li>binary-art</li>
          <li>svg</li>
       </ul>
-   </section>
-   <!--artwork/@width-->
-   <section anchor="element.artwork.attribute.width" toc="exclude">
-      <name>"width" Attribute</name>
-      <iref item="Attributes" subitem="width"/>
-      <iref item="artwork element" subitem="width attribute"/>
-      <iref item="width attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-      </t>
-   </section>
-   <!--artwork/@xml:space-->
-   <section anchor="element.artwork.attribute.xml-space" toc="exclude">
-      <name>"xml:space" Attribute</name>
-      <iref item="Attributes" subitem="xml:space"/>
-      <iref item="artwork element" subitem="xml:space attribute"/>
-      <iref item="xml:space attribute" subitem="in artwork element"/>
-      <t>
-            Deprecated.
-       </t>
    </section>
 </section>
 <!--aside-->
@@ -999,7 +866,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       "The packet &lt;bcp14&gt;MUST&lt;/bcp14&gt; be dropped.", but it is not correct to say
       "&lt;bcp14&gt;The packet MUST be dropped.&lt;/bcp14&gt;".
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.bcp14.contents"><!--AG-->
       <xref format="none" target="grammar.bcp14">Content model</xref>: only text content.</t>
 </section>
@@ -1315,7 +1182,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       might appear either inline and visually highlighted, at the end of the document,
       or not at all, depending on the formatting tool.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>ttcol</x:ref>&gt; (<xref target="element.ttcol"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.cref.contents"><!--AG-->
       <xref format="none" target="grammar.cref">Content model</xref>:
     </t>
@@ -1807,7 +1674,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         This element can be combined with other character formatting elements, and the
         formatting will be additive.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
    <t anchor="element.em.contents"><!--AG-->
       <xref format="none" target="grammar.em">Content model</xref>:
     </t>
@@ -1926,7 +1793,7 @@ This is described
 &lt;a href="http://www.example.com/reports/r12.html"&gt;
 in this interesting report&lt;/a&gt;.
 </artwork>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>ttcol</x:ref>&gt; (<xref target="element.ttcol"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.eref.contents"><!--AG-->
       <xref format="none" target="grammar.eref">Content model</xref>: only text content.</t>
    <!--eref/@brackets-->
@@ -1982,9 +1849,6 @@ in this interesting report&lt;/a&gt;.
          <iref item="Elements" subitem="iref"/>
          <iref item="iref element" subitem="inside figure"/>Optional &lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="preamble"/>
-         <iref item="preamble element" subitem="inside figure"/>One optional &lt;<x:ref>preamble</x:ref>&gt; element (<xref target="element.preamble"/>)</li>
-      <li><!--AG-->
          <t>In any order, but at least one of:</t>
          <ul><!--AG-->
             <li><!--AG-->
@@ -1998,9 +1862,6 @@ in this interesting report&lt;/a&gt;.
                <iref item="sourcecode element" subitem="inside figure"/>&lt;<x:ref>sourcecode</x:ref>&gt; elements (<xref target="element.sourcecode"/>)</li>
          </ul>
       </li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="postamble"/>
-         <iref item="postamble element" subitem="inside figure"/>One optional &lt;<x:ref>postamble</x:ref>&gt; element (<xref target="element.postamble"/>)</li>
    </ol>
    <!--figure/@align-->
    <section anchor="element.figure.attribute.align" toc="exclude">
@@ -2021,17 +1882,6 @@ in this interesting report&lt;/a&gt;.
          <li>"right"</li>
       </ul>
    </section>
-   <!--figure/@alt-->
-   <section anchor="element.figure.attribute.alt" toc="exclude">
-      <name>"alt" Attribute</name>
-      <iref item="Attributes" subitem="alt"/>
-      <iref item="figure element" subitem="alt attribute"/>
-      <iref item="alt attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "alt" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.alt"/>).
-      </t>
-   </section>
    <!--figure/@anchor-->
    <section anchor="element.figure.attribute.anchor" toc="exclude">
       <name>"anchor" Attribute</name>
@@ -2040,28 +1890,6 @@ in this interesting report&lt;/a&gt;.
       <iref item="anchor attribute" subitem="in figure element"/>
       <t>
         Document-wide unique identifier for this figure.
-      </t>
-   </section>
-   <!--figure/@height-->
-   <section anchor="element.figure.attribute.height" toc="exclude">
-      <name>"height" Attribute</name>
-      <iref item="Attributes" subitem="height"/>
-      <iref item="figure element" subitem="height attribute"/>
-      <iref item="height attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "height" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.height"/>).
-      </t>
-   </section>
-   <!--figure/@src-->
-   <section anchor="element.figure.attribute.src" toc="exclude">
-      <name>"src" Attribute</name>
-      <iref item="Attributes" subitem="src"/>
-      <iref item="figure element" subitem="src attribute"/>
-      <iref item="src attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "src" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.src"/>).
       </t>
    </section>
    <!--figure/@suppress-title-->
@@ -2078,27 +1906,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--figure/@title-->
-   <section anchor="element.figure.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="figure element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in figure element"/>
-      <t>
-            Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
-      </t>
-   </section>
-   <!--figure/@width-->
-   <section anchor="element.figure.attribute.width" toc="exclude">
-      <name>"width" Attribute</name>
-      <iref item="Attributes" subitem="width"/>
-      <iref item="figure element" subitem="width attribute"/>
-      <iref item="width attribute" subitem="in figure element"/>
-      <t>
-         Deprecated - use "width" attribute on &lt;<x:ref>artwork</x:ref>&gt;
-         element instead (<xref target="element.artwork.attribute.width"/>).
-      </t>
    </section>
 </section>
 <!--front-->
@@ -2181,7 +1988,7 @@ in this interesting report&lt;/a&gt;.
       The index is sorted in conventional alphabetical order disregarding case.
 
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>table</x:ref>&gt; (<xref target="element.table"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>ttcol</x:ref>&gt; (<xref target="element.ttcol"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>table</x:ref>&gt; (<xref target="element.table"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.iref.contents"><!--AG-->
       <xref format="none" target="grammar.iref">Content model</xref>: this element does not have any contents.</t>
    <!--iref/@item-->
@@ -2454,11 +2261,11 @@ in this interesting report&lt;/a&gt;.
    <iref item="Elements" subitem="name" primary="true"/>
    <iref item="name element" primary="true"/>
    <t>
-      The name of the section, note, figure, or texttable. This name can
+      The name of the section, note, or figure. This name can
       indicate markup of flowing text (for example, including references or
       making some characters use a fixed-width font).
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>), &lt;<x:ref>note</x:ref>&gt; (<xref target="element.note"/>), &lt;<x:ref>references</x:ref>&gt; (<xref target="element.references"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), &lt;<x:ref>table</x:ref>&gt; (<xref target="element.table"/>), and &lt;<x:ref>texttable</x:ref>&gt; (<xref target="element.texttable"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>), &lt;<x:ref>note</x:ref>&gt; (<xref target="element.note"/>), &lt;<x:ref>references</x:ref>&gt; (<xref target="element.references"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), and &lt;<x:ref>table</x:ref>&gt; (<xref target="element.table"/>).</t>
    <t anchor="element.name.contents"><!--AG-->
       <xref format="none" target="grammar.name">Content model</xref>:
     </t>
@@ -2561,16 +2368,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--note/@title-->
-   <section anchor="element.note.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="note element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in note element"/>
-      <t>
-            Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
-         </t>
    </section>
 </section>
 <!--ol-->
@@ -2995,9 +2792,6 @@ in this interesting report&lt;/a&gt;.
                <iref item="Elements" subitem="annotation"/>
                <iref item="annotation element" subitem="inside reference"/>&lt;<x:ref>annotation</x:ref>&gt; elements (<xref target="element.annotation"/>)</li>
             <li><!--AG-->
-               <iref item="Elements" subitem="format"/>
-               <iref item="format element" subitem="inside reference"/>&lt;<x:ref>format</x:ref>&gt; elements (<xref target="element.format"/>)</li>
-            <li><!--AG-->
                <iref item="Elements" subitem="refcontent"/>
                <iref item="refcontent element" subitem="inside reference"/>&lt;<x:ref>refcontent</x:ref>&gt; elements (<xref target="element.refcontent"/>)</li>
             <li><!--AG-->
@@ -3164,16 +2958,6 @@ in this interesting report&lt;/a&gt;.
       <iref item="anchor attribute" subitem="in references element"/>
       <t>
          An optional user-supplied identifier for this set of references.
-      </t>
-   </section>
-   <!--references/@title-->
-   <section anchor="element.references.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="references element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in references element"/>
-      <t>
-         Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead.
       </t>
    </section>
 </section>
@@ -3554,9 +3338,6 @@ in this interesting report&lt;/a&gt;.
                <iref item="Elements" subitem="table"/>
                <iref item="table element" subitem="inside section"/>&lt;<x:ref>table</x:ref>&gt; elements (<xref target="element.table"/>)</li>
             <li><!--AG-->
-               <iref item="Elements" subitem="texttable"/>
-               <iref item="texttable element" subitem="inside section"/>&lt;<x:ref>texttable</x:ref>&gt; elements (<xref target="element.texttable"/>)</li>
-            <li><!--AG-->
                <iref item="Elements" subitem="ul"/>
                <iref item="ul element" subitem="inside section"/>&lt;<x:ref>ul</x:ref>&gt; elements (<xref target="element.ul"/>)</li>
          </ul>
@@ -3608,16 +3389,6 @@ in this interesting report&lt;/a&gt;.
          <li>"true"</li>
          <li>"false" (default)</li>
       </ul>
-   </section>
-   <!--section/@title-->
-   <section anchor="element.section.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="section element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in section element"/>
-      <t>
-         Deprecated. Use &lt;<x:ref>name</x:ref>&gt; instead. 
-      </t>
    </section>
    <!--section/@toc-->
    <section anchor="element.section.attribute.toc" toc="exclude">
@@ -3943,7 +3714,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         This element can be combined with other character formatting elements, and the
         formatting will be additive.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
    <t anchor="element.strong.contents"><!--AG-->
       <xref format="none" target="grammar.strong">Content model</xref>:
     </t>
@@ -3998,7 +3769,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         This element can be combined with other character formatting elements, and the
         formatting will be additive.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
    <t anchor="element.sub.contents"><!--AG-->
       <xref format="none" target="grammar.sub">Content model</xref>:
     </t>
@@ -4053,7 +3824,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         This element can be combined with other character formatting elements, and the
         formatting will be additive.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
    <t anchor="element.sup.contents"><!--AG-->
       <xref format="none" target="grammar.sup">Content model</xref>:
     </t>
@@ -4106,7 +3877,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
    <t>
       Contains a paragraph of text.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>abstract</x:ref>&gt; (<xref target="element.abstract"/>), &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>list</x:ref>&gt; (<xref target="element.list"/>), &lt;<x:ref>note</x:ref>&gt; (<xref target="element.note"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), and &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>abstract</x:ref>&gt; (<xref target="element.abstract"/>), &lt;<x:ref>aside</x:ref>&gt; (<xref target="element.aside"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>note</x:ref>&gt; (<xref target="element.note"/>), &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), and &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>).</t>
    <t anchor="element.t.contents"><!--AG-->
       <xref format="none" target="grammar.t">Content model</xref>:
     </t>
@@ -4135,14 +3906,8 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
          <iref item="Elements" subitem="iref"/>
          <iref item="iref element" subitem="inside t"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
       <li><!--AG-->
-         <iref item="Elements" subitem="list"/>
-         <iref item="list element" subitem="inside t"/>&lt;<x:ref>list</x:ref>&gt; elements (<xref target="element.list"/>)</li>
-      <li><!--AG-->
          <iref item="Elements" subitem="relref"/>
          <iref item="relref element" subitem="inside t"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside t"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="strong"/>
          <iref item="strong element" subitem="inside t"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
@@ -4158,9 +3923,6 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       <li><!--AG-->
          <iref item="Elements" subitem="u"/>
          <iref item="u element" subitem="inside t"/>&lt;<x:ref>u</x:ref>&gt; elements (<xref target="element.u"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="vspace"/>
-         <iref item="vspace element" subitem="inside t"/>&lt;<x:ref>vspace</x:ref>&gt; elements (<xref target="element.vspace"/>)</li>
       <li><!--AG-->
          <iref item="Elements" subitem="xref"/>
          <iref item="xref element" subitem="inside t"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
@@ -4810,7 +4572,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
         This element can be combined with other character formatting elements, and the
         formatting will be additive.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>refcontent</x:ref>&gt; (<xref target="element.refcontent"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>xref</x:ref>&gt; (<xref target="element.xref"/>).</t>
    <t anchor="element.tt.contents"><!--AG-->
       <xref format="none" target="grammar.tt">Content model</xref>:
     </t>
@@ -4865,7 +4627,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       The element will be expanded inline based on the value of a "format" attribute.
       This provides a generalised means of generating the 6 methods of Unicode renderings listed in <xref target="RFC7997"/>, Section 3.4, and also several others found in for instance the RFC Format Tools example rendering of RFC 7700.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), and &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), and &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>).</t>
    <t anchor="element.u.contents"><!--AG-->
       <xref format="none" target="grammar.u">Content model</xref>: only text content.</t>
    <!--u/@anchor-->
@@ -5098,7 +4860,7 @@ See <xref target="cdata.and.escaping"/> for a description of how to deal with is
       document, to specific figures, and so on.
       The "target" attribute is required.
    </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>), and &lt;<x:ref>ttcol</x:ref>&gt; (<xref target="element.ttcol"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.xref.contents"><!--AG-->
       <xref format="none" target="grammar.xref">Content model</xref>:
     </t>
@@ -5227,21 +4989,6 @@ See &lt;a href="#overview"&gt;section above&lt;/a&gt; for an overview.
          <li>"none"</li>
       </ul>
    </section>
-   <!--xref/@pageno-->
-   <section anchor="element.xref.attribute.pageno" toc="exclude">
-      <name>"pageno" Attribute</name>
-      <iref item="Attributes" subitem="pageno"/>
-      <iref item="xref element" subitem="pageno attribute"/>
-      <iref item="pageno attribute" subitem="in xref element"/>
-      <t>
-            Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"true"</li>
-         <li>"false" (default)</li>
-      </ul>
-   </section>
    <!--xref/@relative-->
    <section anchor="element.xref.attribute.relative" toc="exclude">
       <name>"relative" Attribute</name>
@@ -5348,50 +5095,14 @@ See &lt;a href="#overview"&gt;section above&lt;/a&gt; for an overview.
 <?ENDINC xml2rfcv3-spec.xml ?>
 </section>
 
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" title="Elements from v2 and original v3 That Have Been Deprecated" anchor="deprecatedelements">
+<section xmlns:x="http://purl.org/net/xml2rfc/ext" title="Elements from the Original Version of v3 That Have Been Deprecated" anchor="deprecatedelements">
 
-<t>This section lists the elements from v2 and the original version of v3 that have been deprecated. Note that some elements in
-v3 have attributes from v2 that are deprecated; those are not listed here.</t>
+<t>This section lists the elements from the original version of v3 that have been deprecated.</t>
 
 <?BEGININC xml2rfcv3-spec-deprecated.xml ?>
 <!--THIS IS AN AUTOGENERATED FILE. DO NOT EDIT!-->
 
-<!--c--><section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.c">
-   <name>
-      <tt>&lt;c&gt;</tt>
-   </name>
-   <x:anchor-alias value="c"/>
-   <iref item="Elements" subitem="c" primary="true"/>
-   <iref item="c element" primary="true"/>
-   <t>
-      Deprecated. Instead, use &lt;<x:ref>tr</x:ref>&gt;, &lt;<x:ref>td</x:ref>&gt;, and &lt;<x:ref>th</x:ref>&gt;.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>texttable</x:ref>&gt; (<xref target="element.texttable"/>).</t>
-   <t anchor="element.c.contents"><!--AG-->
-      <xref format="none" target="grammar.c">Content model</xref>:
-    </t>
-   <t><!--AG-->In any order:</t>
-   <ul><!--AG-->
-      <li><!--AG-->Text</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="cref"/>
-         <iref item="cref element" subitem="inside c"/>&lt;<x:ref>cref</x:ref>&gt; elements (<xref target="element.cref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="eref"/>
-         <iref item="eref element" subitem="inside c"/>&lt;<x:ref>eref</x:ref>&gt; elements (<xref target="element.eref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="iref"/>
-         <iref item="iref element" subitem="inside c"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside c"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="xref"/>
-         <iref item="xref element" subitem="inside c"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
-   </ul>
-</section>
-<!--city-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.city">
+<!--city--><section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.city">
    <name>
       <tt>&lt;city&gt;</tt>
    </name>
@@ -5490,120 +5201,6 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
       </t>
    </section>
 </section>
-<!--facsimile-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.facsimile">
-   <name>
-      <tt>&lt;facsimile&gt;</tt>
-   </name>
-   <x:anchor-alias value="facsimile"/>
-   <iref item="Elements" subitem="facsimile" primary="true"/>
-   <iref item="facsimile element" primary="true"/>
-   <t>
-      Deprecated. The &lt;<x:ref>email</x:ref>&gt; element is a much more useful way to get in touch with authors.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>address</x:ref>&gt; (<xref target="element.address"/>).</t>
-   <t anchor="element.facsimile.contents"><!--AG-->
-      <xref format="none" target="grammar.facsimile">Content model</xref>: only text content.</t>
-</section>
-<!--format-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.format">
-   <name>
-      <tt>&lt;format&gt;</tt>
-   </name>
-   <x:anchor-alias value="format"/>
-   <iref item="Elements" subitem="format" primary="true"/>
-   <iref item="format element" primary="true"/>
-   <t>
-      Deprecated. If the goal is to provide a single URI for
-      a reference, use the "target" attribute in &lt;<x:ref>reference</x:ref>&gt; instead.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>reference</x:ref>&gt; (<xref target="element.reference"/>).</t>
-   <t anchor="element.format.contents"><!--AG-->
-      <xref format="none" target="grammar.format">Content model</xref>: this element does not have any contents.</t>
-   <!--format/@octets-->
-   <section anchor="element.format.attribute.octets" toc="exclude">
-      <name>"octets" Attribute</name>
-      <iref item="Attributes" subitem="octets"/>
-      <iref item="format element" subitem="octets attribute"/>
-      <iref item="octets attribute" subitem="in format element"/>
-      <t>
-        Deprecated.
-       </t>
-   </section>
-   <!--format/@target-->
-   <section anchor="element.format.attribute.target" toc="exclude">
-      <name>"target" Attribute</name>
-      <iref item="Attributes" subitem="target"/>
-      <iref item="format element" subitem="target attribute"/>
-      <iref item="target attribute" subitem="in format element"/>
-      <t>
-        Deprecated.
-       </t>
-   </section>
-   <!--format/@type-->
-   <section anchor="element.format.attribute.type" toc="exclude">
-      <name>"type" Attribute <em> (Mandatory)</em>
-      </name>
-      <iref item="Attributes" subitem="type"/>
-      <iref item="format element" subitem="type attribute"/>
-      <iref item="type attribute" subitem="in format element"/>
-      <t>
-        Deprecated.
-       </t>
-   </section>
-</section>
-<!--list-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.list">
-   <name>
-      <tt>&lt;list&gt;</tt>
-   </name>
-   <x:anchor-alias value="list"/>
-   <iref item="Elements" subitem="list" primary="true"/>
-   <iref item="list element" primary="true"/>
-   <t>
-      Deprecated. Instead, use
-      &lt;<x:ref>dl</x:ref>&gt; for list/@style "hanging";
-      &lt;<x:ref>ul</x:ref>&gt; for list/@style "empty" or "symbols"; and
-      &lt;<x:ref>ol</x:ref>&gt; for list/@style "letters", "numbers", "counter", or "format".
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
-   <t anchor="element.list.contents"><!--AG-->
-      <xref format="none" target="grammar.list">Content model</xref>:
-    </t>
-   <t><!--AG-->
-      <iref item="Elements" subitem="t"/>
-      <iref item="t element" subitem="inside list"/>One or more &lt;<x:ref>t</x:ref>&gt; elements (<xref target="element.t"/>)</t>
-   <!--list/@counter-->
-   <section anchor="element.list.attribute.counter" toc="exclude">
-      <name>"counter" Attribute</name>
-      <iref item="Attributes" subitem="counter"/>
-      <iref item="list element" subitem="counter attribute"/>
-      <iref item="counter attribute" subitem="in list element"/>
-      <t>
-        Deprecated. The functionality of this attribute has been replaced with &lt;<x:ref>ol</x:ref>&gt;/@start.
-      </t>
-   </section>
-   <!--list/@hangIndent-->
-   <section anchor="element.list.attribute.hangIndent" toc="exclude">
-      <name>"hangIndent" Attribute</name>
-      <iref item="Attributes" subitem="hangIndent"/>
-      <iref item="list element" subitem="hangIndent attribute"/>
-      <iref item="hangIndent attribute" subitem="in list element"/>
-      <t>
-         Deprecated. Use &lt;<x:ref>dl</x:ref>&gt; instead.
-      </t>
-   </section>
-   <!--list/@style-->
-   <section anchor="element.list.attribute.style" toc="exclude">
-      <name>"style" Attribute</name>
-      <iref item="Attributes" subitem="style"/>
-      <iref item="list element" subitem="style attribute"/>
-      <iref item="style attribute" subitem="in list element"/>
-      <t>
-        Deprecated.
-      </t>
-   </section>
-</section>
 <!--pobox-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.pobox">
    <name>
@@ -5628,100 +5225,6 @@ v3 have attributes from v2 that are deprecated; those are not listed here.</t>
 	      ASCII equivalent for pobox. 
       </t>
    </section>
-</section>
-<!--postamble-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.postamble">
-   <name>
-      <tt>&lt;postamble&gt;</tt>
-   </name>
-   <x:anchor-alias value="postamble"/>
-   <iref item="Elements" subitem="postamble" primary="true"/>
-   <iref item="postamble element" primary="true"/>
-   <t>
-      Deprecated. Instead, use a regular paragraph after the figure or table.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>) and &lt;<x:ref>texttable</x:ref>&gt; (<xref target="element.texttable"/>).</t>
-   <t anchor="element.postamble.contents"><!--AG-->
-      <xref format="none" target="grammar.postamble">Content model</xref>:
-    </t>
-   <t><!--AG-->In any order:</t>
-   <ul><!--AG-->
-      <li><!--AG-->Text</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="cref"/>
-         <iref item="cref element" subitem="inside postamble"/>&lt;<x:ref>cref</x:ref>&gt; elements (<xref target="element.cref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="eref"/>
-         <iref item="eref element" subitem="inside postamble"/>&lt;<x:ref>eref</x:ref>&gt; elements (<xref target="element.eref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="iref"/>
-         <iref item="iref element" subitem="inside postamble"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside postamble"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="xref"/>
-         <iref item="xref element" subitem="inside postamble"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
-   </ul>
-</section>
-<!--preamble-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.preamble">
-   <name>
-      <tt>&lt;preamble&gt;</tt>
-   </name>
-   <x:anchor-alias value="preamble"/>
-   <iref item="Elements" subitem="preamble" primary="true"/>
-   <iref item="preamble element" primary="true"/>
-   <t>
-      Deprecated. Instead, use a regular paragraph before the figure or table.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>figure</x:ref>&gt; (<xref target="element.figure"/>) and &lt;<x:ref>texttable</x:ref>&gt; (<xref target="element.texttable"/>).</t>
-   <t anchor="element.preamble.contents"><!--AG-->
-      <xref format="none" target="grammar.preamble">Content model</xref>:
-    </t>
-   <t><!--AG-->In any order:</t>
-   <ul><!--AG-->
-      <li><!--AG-->Text</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="bcp14"/>
-         <iref item="bcp14 element" subitem="inside preamble"/>&lt;<x:ref>bcp14</x:ref>&gt; elements (<xref target="element.bcp14"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="cref"/>
-         <iref item="cref element" subitem="inside preamble"/>&lt;<x:ref>cref</x:ref>&gt; elements (<xref target="element.cref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="em"/>
-         <iref item="em element" subitem="inside preamble"/>&lt;<x:ref>em</x:ref>&gt; elements (<xref target="element.em"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="eref"/>
-         <iref item="eref element" subitem="inside preamble"/>&lt;<x:ref>eref</x:ref>&gt; elements (<xref target="element.eref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="iref"/>
-         <iref item="iref element" subitem="inside preamble"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="relref"/>
-         <iref item="relref element" subitem="inside preamble"/>&lt;<x:ref>relref</x:ref>&gt; elements (<xref target="element.relref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="spanx"/>
-         <iref item="spanx element" subitem="inside preamble"/>&lt;<x:ref>spanx</x:ref>&gt; elements (<xref target="element.spanx"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="strong"/>
-         <iref item="strong element" subitem="inside preamble"/>&lt;<x:ref>strong</x:ref>&gt; elements (<xref target="element.strong"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="sub"/>
-         <iref item="sub element" subitem="inside preamble"/>&lt;<x:ref>sub</x:ref>&gt; elements (<xref target="element.sub"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="sup"/>
-         <iref item="sup element" subitem="inside preamble"/>&lt;<x:ref>sup</x:ref>&gt; elements (<xref target="element.sup"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="tt"/>
-         <iref item="tt element" subitem="inside preamble"/>&lt;<x:ref>tt</x:ref>&gt; elements (<xref target="element.tt"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="u"/>
-         <iref item="u element" subitem="inside preamble"/>&lt;<x:ref>u</x:ref>&gt; elements (<xref target="element.u"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="xref"/>
-         <iref item="xref element" subitem="inside preamble"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
-   </ul>
 </section>
 <!--region-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.region">
@@ -5790,7 +5293,7 @@ the protocol overview&lt;/a&gt;
 for more information.
 </artwork>
    <t/>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
+   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>blockquote</x:ref>&gt; (<xref target="element.blockquote"/>), &lt;<x:ref>cref</x:ref>&gt; (<xref target="element.cref"/>), &lt;<x:ref>dd</x:ref>&gt; (<xref target="element.dd"/>), &lt;<x:ref>dt</x:ref>&gt; (<xref target="element.dt"/>), &lt;<x:ref>em</x:ref>&gt; (<xref target="element.em"/>), &lt;<x:ref>li</x:ref>&gt; (<xref target="element.li"/>), &lt;<x:ref>name</x:ref>&gt; (<xref target="element.name"/>), &lt;<x:ref>strong</x:ref>&gt; (<xref target="element.strong"/>), &lt;<x:ref>sub</x:ref>&gt; (<xref target="element.sub"/>), &lt;<x:ref>sup</x:ref>&gt; (<xref target="element.sup"/>), &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>), &lt;<x:ref>td</x:ref>&gt; (<xref target="element.td"/>), &lt;<x:ref>th</x:ref>&gt; (<xref target="element.th"/>), and &lt;<x:ref>tt</x:ref>&gt; (<xref target="element.tt"/>).</t>
    <t anchor="element.relref.contents"><!--AG-->
       <xref format="none" target="grammar.relref">Content model</xref>: only text content.</t>
    <!--relref/@displayFormat-->
@@ -5985,48 +5488,6 @@ for an overview.
       </t>
    </section>
 </section>
-<!--spanx-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.spanx">
-   <name>
-      <tt>&lt;spanx&gt;</tt>
-   </name>
-   <x:anchor-alias value="spanx"/>
-   <iref item="Elements" subitem="spanx" primary="true"/>
-   <iref item="spanx element" primary="true"/>
-   <t>
-      Deprecated.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>annotation</x:ref>&gt; (<xref target="element.annotation"/>), &lt;<x:ref>c</x:ref>&gt; (<xref target="element.c"/>), &lt;<x:ref>postamble</x:ref>&gt; (<xref target="element.postamble"/>), &lt;<x:ref>preamble</x:ref>&gt; (<xref target="element.preamble"/>), and &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
-   <t anchor="element.spanx.contents"><!--AG-->
-      <xref format="none" target="grammar.spanx">Content model</xref>: only text content.</t>
-   <!--spanx/@style-->
-   <section anchor="element.spanx.attribute.style" toc="exclude">
-      <name>"style" Attribute</name>
-      <iref item="Attributes" subitem="style"/>
-      <iref item="spanx element" subitem="style attribute"/>
-      <iref item="style attribute" subitem="in spanx element"/>
-      <t>
-         Deprecated. Instead of &lt;spanx style="emph"&gt;, use &lt;<x:ref>em</x:ref>&gt;;
-      instead of &lt;spanx style="strong"&gt;, use &lt;<x:ref>strong</x:ref>&gt;;
-      instead of &lt;spanx style="verb"&gt;, use &lt;tt&gt;.
-      </t>
-   </section>
-   <!--spanx/@xml:space-->
-   <section anchor="element.spanx.attribute.xml-space" toc="exclude">
-      <name>"xml:space" Attribute</name>
-      <iref item="Attributes" subitem="xml:space"/>
-      <iref item="spanx element" subitem="xml:space attribute"/>
-      <iref item="xml:space attribute" subitem="in spanx element"/>
-      <t>
-         Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"default"</li>
-         <li>"preserve" (default)</li>
-      </ul>
-   </section>
-</section>
 <!--street-->
 <section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.street">
    <name>
@@ -6049,193 +5510,6 @@ for an overview.
       <iref item="ascii attribute" subitem="in street element"/>
       <t>
          The ASCII equivalent of the street address.
-      </t>
-   </section>
-</section>
-<!--texttable-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.texttable">
-   <name>
-      <tt>&lt;texttable&gt;</tt>
-   </name>
-   <x:anchor-alias value="texttable"/>
-   <iref item="Elements" subitem="texttable" primary="true"/>
-   <iref item="texttable element" primary="true"/>
-   <t>
-      Deprecated. Use &lt;<x:ref>table</x:ref>&gt; instead.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>section</x:ref>&gt; (<xref target="element.section"/>).</t>
-   <t anchor="element.texttable.contents"><!--AG-->
-      <xref format="none" target="grammar.texttable">Content model</xref>:</t>
-   <t><!--AG-->In this order:</t>
-   <ol><!--AG-->
-      <li><!--AG-->
-         <iref item="Elements" subitem="name"/>
-         <iref item="name element" subitem="inside texttable"/>One optional &lt;<x:ref>name</x:ref>&gt; element (<xref target="element.name"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="preamble"/>
-         <iref item="preamble element" subitem="inside texttable"/>One optional &lt;<x:ref>preamble</x:ref>&gt; element (<xref target="element.preamble"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="ttcol"/>
-         <iref item="ttcol element" subitem="inside texttable"/>One or more &lt;<x:ref>ttcol</x:ref>&gt; elements (<xref target="element.ttcol"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="c"/>
-         <iref item="c element" subitem="inside texttable"/>Optional &lt;<x:ref>c</x:ref>&gt; elements (<xref target="element.c"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="postamble"/>
-         <iref item="postamble element" subitem="inside texttable"/>One optional &lt;<x:ref>postamble</x:ref>&gt; element (<xref target="element.postamble"/>)</li>
-   </ol>
-   <!--texttable/@align-->
-   <section anchor="element.texttable.attribute.align" toc="exclude">
-      <name>"align" Attribute</name>
-      <iref item="Attributes" subitem="align"/>
-      <iref item="texttable element" subitem="align attribute"/>
-      <iref item="align attribute" subitem="in texttable element"/>
-      <t>
-            Deprecated.
-         </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"left"</li>
-         <li>"center" (default)</li>
-         <li>"right"</li>
-      </ul>
-   </section>
-   <!--texttable/@anchor-->
-   <section anchor="element.texttable.attribute.anchor" toc="exclude">
-      <name>"anchor" Attribute</name>
-      <iref item="Attributes" subitem="anchor"/>
-      <iref item="texttable element" subitem="anchor attribute"/>
-      <iref item="anchor attribute" subitem="in texttable element"/>
-      <t>
-        Deprecated.
-      </t>
-   </section>
-   <!--texttable/@style-->
-   <section anchor="element.texttable.attribute.style" toc="exclude">
-      <name>"style" Attribute</name>
-      <iref item="Attributes" subitem="style"/>
-      <iref item="texttable element" subitem="style attribute"/>
-      <iref item="style attribute" subitem="in texttable element"/>
-      <t>
-        Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"all"</li>
-         <li>"none"</li>
-         <li>"headers"</li>
-         <li>"full" (default)</li>
-      </ul>
-   </section>
-   <!--texttable/@suppress-title-->
-   <section anchor="element.texttable.attribute.suppress-title" toc="exclude">
-      <name>"suppress-title" Attribute</name>
-      <iref item="Attributes" subitem="suppress-title"/>
-      <iref item="texttable element" subitem="suppress-title attribute"/>
-      <iref item="suppress-title attribute" subitem="in texttable element"/>
-      <t>
-        Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"true"</li>
-         <li>"false" (default)</li>
-      </ul>
-   </section>
-   <!--texttable/@title-->
-   <section anchor="element.texttable.attribute.title" toc="exclude">
-      <name>"title" Attribute</name>
-      <iref item="Attributes" subitem="title"/>
-      <iref item="texttable element" subitem="title attribute"/>
-      <iref item="title attribute" subitem="in texttable element"/>
-      <t>
-            Deprecated.
-      </t>
-   </section>
-</section>
-<!--ttcol-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.ttcol">
-   <name>
-      <tt>&lt;ttcol&gt;</tt>
-   </name>
-   <x:anchor-alias value="ttcol"/>
-   <iref item="Elements" subitem="ttcol" primary="true"/>
-   <iref item="ttcol element" primary="true"/>
-   <t>
-      Deprecated. Instead, use &lt;<x:ref>tr</x:ref>&gt;, &lt;<x:ref>td</x:ref>&gt;, and &lt;<x:ref>th</x:ref>&gt;.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>texttable</x:ref>&gt; (<xref target="element.texttable"/>).</t>
-   <t anchor="element.ttcol.contents"><!--AG-->
-      <xref format="none" target="grammar.ttcol">Content model</xref>:
-    </t>
-   <t><!--AG-->In any order:</t>
-   <ul><!--AG-->
-      <li><!--AG-->
-         <iref item="Elements" subitem="cref"/>
-         <iref item="cref element" subitem="inside ttcol"/>&lt;<x:ref>cref</x:ref>&gt; elements (<xref target="element.cref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="eref"/>
-         <iref item="eref element" subitem="inside ttcol"/>&lt;<x:ref>eref</x:ref>&gt; elements (<xref target="element.eref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="iref"/>
-         <iref item="iref element" subitem="inside ttcol"/>&lt;<x:ref>iref</x:ref>&gt; elements (<xref target="element.iref"/>)</li>
-      <li><!--AG-->
-         <iref item="Elements" subitem="xref"/>
-         <iref item="xref element" subitem="inside ttcol"/>&lt;<x:ref>xref</x:ref>&gt; elements (<xref target="element.xref"/>)</li>
-      <li><!--AG-->Text</li>
-   </ul>
-   <!--ttcol/@align-->
-   <section anchor="element.ttcol.attribute.align" toc="exclude">
-      <name>"align" Attribute</name>
-      <iref item="Attributes" subitem="align"/>
-      <iref item="ttcol element" subitem="align attribute"/>
-      <iref item="align attribute" subitem="in ttcol element"/>
-      <t>
-        Deprecated.
-      </t>
-      <t><!--AG-->Allowed values:</t>
-      <ul><!--AG-->
-         <li>"left" (default)</li>
-         <li>"center"</li>
-         <li>"right"</li>
-      </ul>
-   </section>
-   <!--ttcol/@width-->
-   <section anchor="element.ttcol.attribute.width" toc="exclude">
-      <name>"width" Attribute</name>
-      <iref item="Attributes" subitem="width"/>
-      <iref item="ttcol element" subitem="width attribute"/>
-      <iref item="width attribute" subitem="in ttcol element"/>
-      <t>
-         Deprecated.
-      </t>
-   </section>
-</section>
-<!--vspace-->
-<section xmlns:x="http://purl.org/net/xml2rfc/ext" anchor="element.vspace">
-   <name>
-      <tt>&lt;vspace&gt;</tt>
-   </name>
-   <x:anchor-alias value="vspace"/>
-   <iref item="Elements" subitem="vspace" primary="true"/>
-   <iref item="vspace element" primary="true"/>
-   <t>
-      Deprecated.  In earlier versions of this format, &lt;vspace&gt; was often
-      used to get an extra blank line in a list element; in the v3 vocabulary,
-      that can be done instead by using multiple &lt;<x:ref>t</x:ref>&gt; elements inside the
-      &lt;<x:ref>li</x:ref>&gt; element. Other uses have no direct replacement.
-   </t>
-   <t><!--AG-->This element appears as a child element of &lt;<x:ref>t</x:ref>&gt; (<xref target="element.t"/>).</t>
-   <t anchor="element.vspace.contents"><!--AG-->
-      <xref format="none" target="grammar.vspace">Content model</xref>: this element does not have any contents.</t>
-   <!--vspace/@blankLines-->
-   <section anchor="element.vspace.attribute.blankLines" toc="exclude">
-      <name>"blankLines" Attribute</name>
-      <iref item="Attributes" subitem="blankLines"/>
-      <iref item="vspace element" subitem="blankLines attribute"/>
-      <iref item="blankLines attribute" subitem="in vspace element"/>
-      <t>
-         Deprecated.
       </t>
    </section>
 </section>
@@ -6344,7 +5618,7 @@ and should have only a localized impact on the document processing and rendering
 </t>
 <t>
   This document updates the specification for the Internet Media Type
-  "application/rfc+xml" from the one in <xref target="RFC7749"/>. The following has been registered with IANA.
+  "application/rfc+xml" from the one in v2 (<xref target="RFC7749"/>). The following has been registered with IANA.
 </t>
 <dl>
   <dt>Type name:</dt>
@@ -6539,22 +5813,6 @@ Suzanne Woolf
       <date month="November" year="2002" />
     </front>
     <seriesInfo name="The Organization for the Advancement of Structured Information Standards (OASIS)" value=""/>
-  </reference>
-
-  <reference anchor="RNG">
-    <front>
-      <title>Information Technology - Document Schema Definition
-      Languages (DSDL) - Part 2: Regular-Grammar-Based Validation -
-      RELAX NG (Second Edition)</title>
-      <author fullname="ISO/IEC">
-        <organization>ISO/IEC</organization>
-      </author>
-      <date day="15" month="December" year="2008"/>
-    </front>
-    <seriesInfo name="ISO/IEC" value="19757-2:2008(E)"/>
-    <annotation>
-      A useful source of RNG-related information is <eref target="http://relaxng.org/"/>.
-    </annotation>
   </reference>
 
   <reference anchor="TLP1.0" target="http://trustee.ietf.org/license-info/IETF-TLP-1.htm">
@@ -6942,8 +6200,7 @@ are believed to be the current values in use.</t>
 </t>
 <t>
   The consensus attribute
-  can be used to supply this information. The acceptable values are "true" (the default) and "false";
-  "yes" and "no" from v2 are deprecated.
+  can be used to supply this information. The acceptable values are "true" (the default) and "false".
 </t>
 <t>
   The effect of this value for the various streams is:
@@ -7014,7 +6271,7 @@ included.</t>
 context than just a line number. For example, the error messages should differentiate between
 errors in XML and those from the v3 format.</t>
 
-<t>In v2, the grammar was specified as a DTD. In v3, the grammar is specified only as RELAX
+<t>In v2 (<xref target="RFC7749"/>), the grammar was specified as a DTD. In v3, the grammar is specified only as RELAX
 Next Generation (RNG). This means that tools need to work from the RNG, not from a DTD.
 Some of the features of the v3 grammar cannot be specified as a DTD.</t>
 
@@ -7165,7 +6422,6 @@ is shared with other elements of a section. The "pn" attribute is added to these
 &lt;<x:ref>blockquote</x:ref>&gt;, &lt;<x:ref>dd</x:ref>&gt;,
 &lt;<x:ref>dl</x:ref>&gt;, &lt;<x:ref>dt</x:ref>&gt;,
 &lt;<x:ref>figure</x:ref>&gt;, &lt;<x:ref>iref</x:ref>&gt;,
-&lt;<x:ref>li</x:ref>&gt;, &lt;<x:ref>list</x:ref>&gt;,
 &lt;<x:ref>note</x:ref>&gt;, &lt;<x:ref>ol</x:ref>&gt;,
 &lt;<x:ref>references</x:ref>&gt;, &lt;<x:ref>section</x:ref>&gt;,
 &lt;<x:ref>sourcecode</x:ref>&gt;, &lt;<x:ref>t</x:ref>&gt;,
@@ -7352,7 +6608,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     postal?,
     phone?,
-    facsimile?,
     email*,
     uri?
   }
@@ -7460,13 +6715,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     text
   }
 
-<strong anchor="grammar.facsimile">facsimile</strong><iref item="facsimile element"/> =
-  element facsimile {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    text
-  }
-
 <strong anchor="grammar.email">email</strong><iref item="email element"/> =
   element email {
     attribute xml:base { text }?,
@@ -7526,7 +6774,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
   element note {
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
-    attribute title { text }?,
     attribute pn { xsd:ID }?,
     [ a:defaultValue = "false" ]
     attribute removeInRFC { "true" | "false" }?,
@@ -7561,7 +6808,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    attribute title { text }?,
     [ a:defaultValue = "true" ]
     attribute numbered { "true" | "false" }?,
     [ a:defaultValue = "default" ]
@@ -7582,7 +6828,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | sourcecode
      | t
      | table
-     | texttable
      | ul)*,
     section*
   }
@@ -7634,15 +6879,12 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | em
      | eref
      | iref
-     | \list
      | relref
-     | spanx
      | strong
      | sub
      | sup
      | tt
      | u
-     | vspace
      | xref)*
   }
 
@@ -7687,17 +6929,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
         | tt
         | u
         | xref)+)
-  }
-
-<strong anchor="grammar.list">\list</strong><iref item="list element"/> =
-  element list {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    [ a:defaultValue = "empty" ] attribute style { text }?,
-    attribute hangIndent { text }?,
-    attribute counter { text }?,
-    attribute pn { xsd:ID }?,
-    t+
   }
 
 <strong anchor="grammar.ol">ol</strong><iref item="ol element"/> =
@@ -7837,8 +7068,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
     attribute target { xsd:IDREF },
-    [ a:defaultValue = "false" ]
-    attribute pageno { "true" | "false" }?,
     [ a:defaultValue = "default" ]
     attribute format { "default" | "title" | "counter" | "none" }?,
     attribute derivedContent { text }?,
@@ -7996,45 +7225,20 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
      | xref)*
   }
 
-<strong anchor="grammar.spanx">spanx</strong><iref item="spanx element"/> =
-  element spanx {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    [ a:defaultValue = "preserve" ]
-    attribute xml:space { "default" | "preserve" }?,
-    [ a:defaultValue = "emph" ] attribute style { text }?,
-    text
-  }
-
-<strong anchor="grammar.vspace">vspace</strong><iref item="vspace element"/> =
-  element vspace {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    [ a:defaultValue = "0" ] attribute blankLines { text }?,
-    empty
-  }
-
 <strong anchor="grammar.figure">figure</strong><iref item="figure element"/> =
   element figure {
     attribute xml:base { text }?,
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    [ a:defaultValue = "" ] attribute title { text }?,
     [ a:defaultValue = "false" ]
     attribute suppress-title { "true" | "false" }?,
-    attribute src { text }?,
     attribute originalSrc { text }?,
     [ a:defaultValue = "left" ]
     attribute align { "left" | "center" | "right" }?,
-    [ a:defaultValue = "" ] attribute alt { text }?,
-    [ a:defaultValue = "" ] attribute width { text }?,
-    [ a:defaultValue = "" ] attribute height { text }?,
     name?,
     iref*,
-    preamble?,
-    (artset | artwork | sourcecode)+,
-    postamble?
+    (artset | artwork | sourcecode)+
   }
 
 <strong anchor="grammar.table">table</strong><iref item="table element"/> =
@@ -8052,26 +7256,6 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     tfoot?
   }
 
-<strong anchor="grammar.preamble">preamble</strong><iref item="preamble element"/> =
-  element preamble {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    (text
-     | bcp14
-     | cref
-     | em
-     | eref
-     | iref
-     | relref
-     | spanx
-     | strong
-     | sub
-     | sup
-     | tt
-     | u
-     | xref)*
-  }
-
 <strong anchor="grammar.artset">artset</strong><iref item="artset element"/> =
   element artset {
     attribute xml:base { text }?,
@@ -8087,15 +7271,12 @@ namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
     attribute xml:lang { text }?,
     attribute anchor { xsd:ID }?,
     attribute pn { xsd:ID }?,
-    attribute xml:space { text }?,
     [ a:defaultValue = "" ] attribute name { text }?,
     [ a:defaultValue = "" ] attribute type { text }?,
     attribute src { text }?,
     [ a:defaultValue = "left" ]
     attribute align { "left" | "center" | "right" }?,
     [ a:defaultValue = "" ] attribute alt { text }?,
-    [ a:defaultValue = "" ] attribute width { text }?,
-    [ a:defaultValue = "" ] attribute height { text }?,
     attribute originalSrc { text }?,
     (text* | svg)
   }
@@ -8201,49 +7382,6 @@ include "SVG-1.2-RFC.rnc"
         | xref)*)
   }
 
-<strong anchor="grammar.postamble">postamble</strong><iref item="postamble element"/> =
-  element postamble {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    (text | cref | eref | iref | spanx | xref)*
-  }
-
-<strong anchor="grammar.texttable">texttable</strong><iref item="texttable element"/> =
-  element texttable {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    attribute anchor { xsd:ID }?,
-    [ a:defaultValue = "" ] attribute title { text }?,
-    [ a:defaultValue = "false" ]
-    attribute suppress-title { "true" | "false" }?,
-    [ a:defaultValue = "center" ]
-    attribute align { "left" | "center" | "right" }?,
-    [ a:defaultValue = "full" ]
-    attribute style { "all" | "none" | "headers" | "full" }?,
-    name?,
-    preamble?,
-    ttcol+,
-    c*,
-    postamble?
-  }
-
-<strong anchor="grammar.ttcol">ttcol</strong><iref item="ttcol element"/> =
-  element ttcol {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    attribute width { text }?,
-    [ a:defaultValue = "left" ]
-    attribute align { "left" | "center" | "right" }?,
-    (cref | eref | iref | xref | text)*
-  }
-
-<strong anchor="grammar.c">c</strong><iref item="c element"/> =
-  element c {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    (text | cref | eref | iref | spanx | xref)*
-  }
-
 <strong anchor="grammar.bcp14">bcp14</strong><iref item="bcp14 element"/> =
   element bcp14 {
     attribute xml:base { text }?,
@@ -8274,7 +7412,6 @@ include "SVG-1.2-RFC.rnc"
     attribute xml:lang { text }?,
     attribute pn { xsd:ID }?,
     attribute anchor { xsd:ID }?,
-    attribute title { text }?,
     name?,
     (references+ | (reference | referencegroup)*)
   }
@@ -8291,7 +7428,7 @@ include "SVG-1.2-RFC.rnc"
     attribute quote-title { "true" | "false" }?,
     stream?,
     front,
-    (annotation | format | refcontent | seriesInfo)*
+    (annotation | refcontent | seriesInfo)*
   }
 
 <strong anchor="grammar.stream">stream</strong><iref item="stream element"/> =
@@ -8326,16 +7463,6 @@ include "SVG-1.2-RFC.rnc"
     empty
   }
 
-<strong anchor="grammar.format">format</strong><iref item="format element"/> =
-  element format {
-    attribute xml:base { text }?,
-    attribute xml:lang { text }?,
-    attribute target { text }?,
-    attribute type { text },
-    attribute octets { text }?,
-    empty
-  }
-
 <strong anchor="grammar.annotation">annotation</strong><iref item="annotation element"/> =
   element annotation {
     attribute xml:base { text }?,
@@ -8347,7 +7474,6 @@ include "SVG-1.2-RFC.rnc"
      | eref
      | iref
      | relref
-     | spanx
      | strong
      | sub
      | sup
@@ -8376,1165 +7502,11 @@ start |= rfc
 </artwork>
 </section>
 
-<section title="Schema Differences from v2">
-
-<t>The following is a non-normative comparison of the v3 format to the v2 format.
-A "-" indicates lines removed from the v2 schema, and a "+" indicates lines added
-to the v3 schema.</t>
-
-<artwork type="inline">
-<?BEGININC differences-from-v2.txt ?>
-  namespace a = 
-  "http://relaxng.org/ns/compatibility/annotations/1.0"
-  
-+ # xml2rfc Version 3 grammar
-  rfc =
-    element rfc {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute number { text }?,
-      [ a:defaultValue = "" ] attribute obsoletes { text }?,
-      [ a:defaultValue = "" ] attribute updates { text }?,
--     attribute category { "std" | "bcp" | "info" | "exp" | 
-- "historic" }?,
--     attribute consensus { "no" | "yes" }?,
--     attribute seriesNo { text }?,
--     attribute ipr {
--       "full2026"
--       | "noDerivativeWorks2026"
--       | "none"
--       | "full3667"
--       | "noModification3667"
--       | "noDerivatives3667"
--       | "full3978"
--       | "noModification3978"
--       | "noDerivatives3978"
--       | "trust200811"
--       | "noModificationTrust200811"
--       | "noDerivativesTrust200811"
--       | "trust200902"
--       | "noModificationTrust200902"
--       | "noDerivativesTrust200902"
--       | "pre5378Trust200902"
-+     attribute category {
-+       "std" | "bcp" | "exp" | "info" | "historic"
-      }?,
-+     attribute mode { text }?,
-+     [ a:defaultValue = "false" ]
-+     attribute consensus { "no" | "yes" | "false" | "true" }?,
-+     attribute seriesNo { text }?,
-+     attribute ipr { text }?,
-      attribute iprExtract { xsd:IDREF }?,
-      [ a:defaultValue = "IETF" ]
-      attribute submissionType {
--       "IETF" | "IAB" | "IRTF" | "independent"
-+       "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
-      }?,
-      attribute docName { text }?,
--     [ a:defaultValue = "en" ] attribute xml:lang { text }?,
-+     [ a:defaultValue = "false" ]
-+     attribute sortRefs { "true" | "false" }?,
-+     [ a:defaultValue = "true" ]
-+     attribute symRefs { "true" | "false" }?,
-+     [ a:defaultValue = "true" ]
-+     attribute tocInclude { "true" | "false" }?,
-+     [ a:defaultValue = "3" ] attribute tocDepth { text }?,
-+     attribute prepTime { text }?,
-+     [ a:defaultValue = "true" ]
-+     attribute indexInclude { "true" | "false" }?,
-+     attribute version { text }?,
-+     [ a:defaultValue = "Common,Latin" ] attribute scripts { text 
-+ }?,
-+     attribute expiresDate { text }?,
-+     link*,
-      front,
-      middle,
-      back?
-    }
-+ link =
-+   element link {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute href { text },
-+     attribute rel { text }?
-+   }
-  front =
-    element front {
--     title, author+, date, area*, workgroup*, keyword*, abstract?, 
-- note*
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     title,
-+     seriesInfo*,
-+     author+,
-+     date?,
-+     area*,
-+     workgroup*,
-+     keyword*,
-+     abstract?,
-+     note*,
-+     boilerplate?,
-+     toc?
-    }
-  title =
-    element title {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute abbrev { text }?,
--     text
-+     attribute ascii { text }?,
-+     (text | br)*
-    }
-  author =
-    element author {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-      attribute initials { text }?,
-+     attribute asciiInitials { text }?,
-      attribute surname { text }?,
-+     attribute asciiSurname { text }?,
-      attribute fullname { text }?,
-      attribute role { "editor" }?,
-+     attribute asciiFullname { text }?,
-+     organization?,
-+     address?
-+   }
-+ contact =
-+   element contact {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute initials { text }?,
-+     attribute asciiInitials { text }?,
-+     attribute surname { text }?,
-+     attribute asciiSurname { text }?,
-+     attribute fullname { text }?,
-+     attribute asciiFullname { text }?,
-      organization?,
-      address?
-    }
-  organization =
-    element organization {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute abbrev { text }?,
-+     attribute ascii { text }?,
-+     attribute asciiAbbrev { text }?,
-+     [ a:defaultValue = "true" ]
-+     attribute showOnFrontPage { "true" | "false" }?,
-+     text
-+   }
-+ address =
-+   element address {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     postal?,
-+     phone?,
-+     facsimile?,
-+     email*,
-+     uri?
-+   }
-+ postal =
-+   element postal {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     ((city
-+       | cityarea
-+       | code
-+       | country
-+       | extaddr
-+       | pobox
-+       | region
-+       | sortingcode
-+       | street)*
-+      | postalLine+)
-+   }
-+ cityarea =
-+   element cityarea {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ extaddr =
-+   element extaddr {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ pobox =
-+   element pobox {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ sortingcode =
-+   element sortingcode {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ street =
-+   element street {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ city =
-+   element city {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ region =
-+   element region {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ code =
-+   element code {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ country =
-+   element country {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ postalLine =
-+   element postalLine {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ phone =
-+   element phone {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     text
-+   }
-+ facsimile =
-+   element facsimile {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     text
-+   }
-+ email =
-+   element email {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute ascii { text }?,
-+     text
-+   }
-+ uri =
-+   element uri {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      text
-    }
-- address = element address { postal?, phone?, facsimile?, email?, 
-- uri? }
-- postal = element postal { street+, (city | region | code | 
-- country)* }
-- street = element street { text }
-- city = element city { text }
-- region = element region { text }
-- code = element code { text }
-- country = element country { text }
-- phone = element phone { text }
-- facsimile = element facsimile { text }
-- email = element email { text }
-- uri = element uri { text }
-  date =
-    element date {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute day { text }?,
-      attribute month { text }?,
-      attribute year { text }?,
--     empty
-+     text
-+   }
-+ area =
-+   element area {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     text
-+   }
-+ workgroup =
-+   element workgroup {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     text
-+   }
-+ keyword =
-+   element keyword {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     text
-+   }
-+ abstract =
-+   element abstract {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     (dl | ol | t | ul)+
-    }
-- area = element area { text }
-- workgroup = element workgroup { text }
-- keyword = element keyword { text }
-- abstract = element abstract { t+ }
-  note =
-    element note {
--     attribute title { text },
--     t+
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute title { text }?,
-+     attribute pn { xsd:ID }?,
-+     [ a:defaultValue = "false" ]
-+     attribute removeInRFC { "true" | "false" }?,
-+     name?,
-+     (dl | ol | t | ul)+
-+   }
-+ boilerplate =
-+   element boilerplate {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     section+
-+   }
-+ toc =
-+   element toc {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     section*
-+   }
-+ middle =
-+   element middle {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     section+
-    }
-- middle = element middle { section+ }
-  section =
-    element section {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID }?,
--     attribute title { text },
-+     attribute pn { xsd:ID }?,
-+     attribute title { text }?,
-+     [ a:defaultValue = "true" ]
-+     attribute numbered { "true" | "false" }?,
-      [ a:defaultValue = "default" ]
-      attribute toc { "include" | "exclude" | "default" }?,
--     (t | figure | texttable | iref)*,
-+     [ a:defaultValue = "false" ]
-+     attribute removeInRFC { "true" | "false" }?,
-+     name?,
-+     (artset
-+      | artwork
-+      | aside
-+      | author
-+      | blockquote
-+      | contact
-+      | dl
-+      | figure
-+      | iref
-+      | ol
-+      | sourcecode
-+      | t
-+      | table
-+      | texttable
-+      | ul)*,
-      section*
-    }
-+ name =
-+   element name {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute slugifiedName { xsd:ID }?,
-+     (text
-+      | bcp14
-+      | br
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ br =
-+   element br {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     empty
-+   }
-  t =
-    element t {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-      attribute hangText { text }?,
-+     [ a:defaultValue = "0" ] attribute indent { text }?,
-+     [ a:defaultValue = "false" ]
-+     attribute keepWithNext { "false" | "true" }?,
-+     [ a:defaultValue = "false" ]
-+     attribute keepWithPrevious { "false" | "true" }?,
-      (text
-+      | bcp14
-+      | br
-+      | contact
-+      | cref
-+      | em
-+      | eref
-+      | iref
-       | \list
-+      | relref
-+      | spanx
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | u
-+      | vspace
-+      | xref)*
-+   }
-+ aside =
-+   element aside {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     (artset
-+      | artwork
-+      | blockquote
-+      | dl
-       | figure
--      | xref
--      | eref
-       | iref
-+      | ol
-+      | t
-+      | table
-+      | ul)*
-+   }
-+ blockquote =
-+   element blockquote {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     attribute cite { text }?,
-+     attribute quotedFrom { text }?,
-+     ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
-+      | (text
-+         | bcp14
-+         | br
-       | cref
--      | spanx
--      | vspace)*
-+         | em
-+         | eref
-+         | iref
-+         | relref
-+         | strong
-+         | sub
-+         | sup
-+         | tt
-+         | u
-+         | xref)+)
-    }
-  \list =
-    element list {
--     attribute style { text }?,
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     [ a:defaultValue = "empty" ] attribute style { text }?,
-      attribute hangIndent { text }?,
-      attribute counter { text }?,
-+     attribute pn { xsd:ID }?,
-      t+
-    }
-+ ol =
-+   element ol {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     [ a:defaultValue = "1" ] attribute type { text }?,
-+     [ a:defaultValue = "1" ] attribute start { text }?,
-+     attribute group { text }?,
-+     [ a:defaultValue = "normal" ]
-+     attribute spacing { "normal" | "compact" }?,
-+     [ a:defaultValue = "adaptive" ]
-+     attribute indent { text | "adaptive" }?,
-+     attribute pn { xsd:ID }?,
-+     li+
-+   }
-+ ul =
-+   element ul {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     [ a:defaultValue = "normal" ]
-+     attribute spacing { "normal" | "compact" }?,
-+     ([ a:defaultValue = "false" ]
-+      attribute empty { "false" | "true" },
-+      [ a:defaultValue = "false" ]
-+      attribute bare { "true" | "false" }?)?,
-+     [ a:defaultValue = "3" ] attribute indent { text }?,
-+     attribute pn { xsd:ID }?,
-+     li+
-+   }
-+ li =
-+   element li {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute derivedCounter { text }?,
-+     attribute pn { xsd:ID }?,
-+     ((artset
-+       | artwork
-+       | blockquote
-+       | dl
-+       | figure
-+       | ol
-+       | sourcecode
-+       | t
-+       | table
-+       | ul)+
-+      | (text
-+         | bcp14
-+         | br
-+         | cref
-+         | em
-+         | eref
-+         | iref
-+         | relref
-+         | strong
-+         | sub
-+         | sup
-+         | tt
-+         | u
-+         | xref)+)
-+   }
-+ dl =
-+   element dl {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     [ a:defaultValue = "normal" ]
-+     attribute spacing { "normal" | "compact" }?,
-+     [ a:defaultValue = "false" ]
-+     attribute newline { "false" | "true" }?,
-+     [ a:defaultValue = "3" ] attribute indent { text }?,
-+     attribute pn { xsd:ID }?,
-+     (dt, dd)+
-+   }
-+ dt =
-+   element dt {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     (text
-+      | bcp14
-+      | br
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ dd =
-+   element dd {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     ((artset
-+       | artwork
-+       | aside
-+       | dl
-+       | figure
-+       | ol
-+       | sourcecode
-+       | t
-+       | table
-+       | ul)+
-+      | (text
-+         | bcp14
-+         | br
-+         | cref
-+         | em
-+         | eref
-+         | iref
-+         | relref
-+         | strong
-+         | sub
-+         | sup
-+         | tt
-+         | u
-+         | xref)+)
-+   }
-  xref =
-    element xref {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute target { xsd:IDREF },
--     [ a:defaultValue = "false" ] attribute pageno { "true" | 
-- "false" }?,
-+     [ a:defaultValue = "false" ]
-+     attribute pageno { "true" | "false" }?,
-      [ a:defaultValue = "default" ]
--     attribute format { "counter" | "title" | "none" | "default" 
-+     attribute format { "default" | "title" | "counter" | "none" 
-+ }?,
-+     attribute derivedContent { text }?,
-+     [ a:defaultValue = "of" ]
-+     attribute sectionFormat { "of" | "comma" | "parens" | "bare" 
-+ }?,
-+     attribute section { text }?,
-+     attribute relative { text }?,
-+     attribute derivedLink { text }?,
-+     (text | em | strong | sub | sup | tt)*
-+   }
-+ relref =
-+   element relref {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute target { xsd:IDREF },
-+     [ a:defaultValue = "of" ]
-+     attribute displayFormat { "of" | "comma" | "parens" | "bare" 
-  }?,
-+     attribute derivedContent { text }?,
-+     attribute section { text },
-+     attribute relative { text }?,
-+     attribute derivedLink { text }?,
-      text
-    }
-  eref =
-    element eref {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     [ a:defaultValue = "none" ]
-+     attribute brackets { "none" | "angle" }?,
-      attribute target { text },
-      text
-    }
-  iref =
-    element iref {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute item { text },
-      [ a:defaultValue = "" ] attribute subitem { text }?,
-      [ a:defaultValue = "false" ]
-      attribute primary { "true" | "false" }?,
-+     attribute pn { xsd:ID }?,
-      empty
-    }
-  cref =
-    element cref {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID }?,
-      attribute source { text }?,
--     text
-+     [ a:defaultValue = "true" ]
-+     attribute display { "true" | "false" }?,
-+     (text
-+      | br
-+      | em
-+      | eref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ tt =
-+   element tt {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | br
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | xref)*
-+   }
-+ strong =
-+   element strong {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | br
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ em =
-+   element em {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | br
-+      | cref
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ sub =
-+   element sub {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-+   }
-+ sup =
-+   element sup {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | xref)*
-    }
-  spanx =
-    element spanx {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      [ a:defaultValue = "preserve" ]
-      attribute xml:space { "default" | "preserve" }?,
-      [ a:defaultValue = "emph" ] attribute style { text }?,
-      text
-    }
-  vspace =
-    element vspace {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      [ a:defaultValue = "0" ] attribute blankLines { text }?,
-      empty
-    }
-  figure =
-    element figure {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-      [ a:defaultValue = "" ] attribute title { text }?,
-      [ a:defaultValue = "false" ]
-      attribute suppress-title { "true" | "false" }?,
-      attribute src { text }?,
-+     attribute originalSrc { text }?,
-      [ a:defaultValue = "left" ]
-      attribute align { "left" | "center" | "right" }?,
-      [ a:defaultValue = "" ] attribute alt { text }?,
-      [ a:defaultValue = "" ] attribute width { text }?,
-      [ a:defaultValue = "" ] attribute height { text }?,
-+     name?,
-      iref*,
-      preamble?,
--     artwork,
-+     (artset | artwork | sourcecode)+,
-      postamble?
-    }
-+ table =
-+   element table {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     [ a:defaultValue = "center" ]
-+     attribute align { "left" | "center" | "right" }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     name?,
-+     iref*,
-+     thead?,
-+     tbody+,
-+     tfoot?
-+   }
-  preamble =
--   element preamble { (text | xref | eref | iref | cref | spanx)* }
-+   element preamble {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | spanx
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | u
-+      | xref)*
-+   }
-+ artset =
-+   element artset {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     artwork+
-+   }
-  artwork =
-    element artwork {
--     [ a:defaultValue = "preserve" ]
--     attribute xml:space { "default" | "preserve" }?,
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     attribute xml:space { text }?,
-      [ a:defaultValue = "" ] attribute name { text }?,
-      [ a:defaultValue = "" ] attribute type { text }?,
-      attribute src { text }?,
-      [ a:defaultValue = "left" ]
-      attribute align { "left" | "center" | "right" }?,
-      [ a:defaultValue = "" ] attribute alt { text }?,
-      [ a:defaultValue = "" ] attribute width { text }?,
-      [ a:defaultValue = "" ] attribute height { text }?,
--     text*
-+     attribute originalSrc { text }?,
-+     (text* | svg)
-+   }
-+ a:documentation [ "svg element: see Appendix A of [RFC7996]." ]
-+ include "SVG-1.2-RFC.rnc"
-+ sourcecode =
-+   element sourcecode {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute pn { xsd:ID }?,
-+     [ a:defaultValue = "" ] attribute name { text }?,
-+     [ a:defaultValue = "" ] attribute type { text }?,
-+     [ a:defaultValue = "false" ]
-+     attribute markers { "true" | "false" }?,
-+     attribute src { text }?,
-+     attribute originalSrc { text }?,
-+     text
-+   }
-+ thead =
-+   element thead {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     tr+
-+   }
-+ tbody =
-+   element tbody {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     tr+
-+   }
-+ tfoot =
-+   element tfoot {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     tr+
-+   }
-+ tr =
-+   element tr {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     (td | th)+
-+   }
-+ td =
-+   element td {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     [ a:defaultValue = "1" ] attribute colspan { text }?,
-+     [ a:defaultValue = "1" ] attribute rowspan { text }?,
-+     [ a:defaultValue = "left" ]
-+     attribute align { "left" | "center" | "right" }?,
-+     ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
-+      | (text
-+         | bcp14
-+         | br
-+         | cref
-+         | em
-+         | eref
-+         | iref
-+         | relref
-+         | strong
-+         | sub
-+         | sup
-+         | tt
-+         | u
-+         | xref)*)
-+   }
-+ th =
-+   element th {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID }?,
-+     [ a:defaultValue = "1" ] attribute colspan { text }?,
-+     [ a:defaultValue = "1" ] attribute rowspan { text }?,
-+     [ a:defaultValue = "left" ]
-+     attribute align { "left" | "center" | "right" }?,
-+     ((artset | artwork | dl | figure | ol | sourcecode | t | ul)+
-+      | (text
-+         | bcp14
-+         | br
-+         | cref
-+         | em
-+         | eref
-+         | iref
-+         | relref
-+         | strong
-+         | sub
-+         | sup
-+         | tt
-+         | u
-+         | xref)*)
-    }
-  postamble =
--   element postamble { (text | xref | eref | iref | cref | spanx)* 
-+   element postamble {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text | cref | eref | iref | spanx | xref)*
-  }
-  texttable =
-    element texttable {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID }?,
-      [ a:defaultValue = "" ] attribute title { text }?,
-      [ a:defaultValue = "false" ]
-      attribute suppress-title { "true" | "false" }?,
-      [ a:defaultValue = "center" ]
-      attribute align { "left" | "center" | "right" }?,
-      [ a:defaultValue = "full" ]
-      attribute style { "all" | "none" | "headers" | "full" }?,
-+     name?,
-      preamble?,
-      ttcol+,
-      c*,
-      postamble?
-    }
-  ttcol =
-    element ttcol {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute width { text }?,
-      [ a:defaultValue = "left" ]
-      attribute align { "left" | "center" | "right" }?,
-+     (cref | eref | iref | xref | text)*
-+   }
-+ c =
-+   element c {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text | cref | eref | iref | spanx | xref)*
-+   }
-+ bcp14 =
-+   element bcp14 {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      text
-    }
-- c = element c { (text | xref | eref | iref | cref | spanx)* }
-- back = element back { references*, section* }
-+ back =
-+   element back {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     displayreference*,
-+     references*,
-+     section*
-+   }
-+ displayreference =
-+   element displayreference {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute target { xsd:IDREF },
-+     attribute to { text }
-+   }
-  references =
-    element references {
--     [ a:defaultValue = "References" ] attribute title { text }?,
--     reference+
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute pn { xsd:ID }?,
-+     attribute anchor { xsd:ID }?,
-+     attribute title { text }?,
-+     name?,
-+     (references+ | (reference | referencegroup)*)
-    }
-  reference =
-    element reference {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute anchor { xsd:ID },
-+     attribute derivedAnchor { text }?,
-      attribute target { text }?,
-+     [ a:defaultValue = "true" ]
-+     attribute quoteTitle { "true" | "false" }?,
-+     attribute quote-title { "true" | "false" }?,
-+     stream?,
-      front,
--     seriesInfo*,
--     format*,
--     annotation*
-+     (annotation | format | refcontent | seriesInfo)*
-+   }
-+ stream =
-+   element stream {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     ("IETF" | "IAB" | "IRTF" | "independent" | "editorial")?
-+   }
-+ referencegroup =
-+   element referencegroup {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     attribute anchor { xsd:ID },
-+     attribute derivedAnchor { text }?,
-+     attribute target { text }?,
-+     reference+
-    }
-  seriesInfo =
-    element seriesInfo {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute name { text },
-      attribute value { text },
-+     attribute asciiName { text }?,
-+     attribute asciiValue { text }?,
-+     attribute status { text }?,
-+     attribute stream {
-+       "IETF" | "IAB" | "IRTF" | "independent" | "editorial"
-+     }?,
-      empty
-    }
-  format =
-    element format {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-      attribute target { text }?,
-      attribute type { text },
-      attribute octets { text }?,
-      empty
-    }
-  annotation =
--   element annotation { (text | xref | eref | iref | cref | 
-- spanx)* }
-- start = rfc
-+   element annotation {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text
-+      | bcp14
-+      | cref
-+      | em
-+      | eref
-+      | iref
-+      | relref
-+      | spanx
-+      | strong
-+      | sub
-+      | sup
-+      | tt
-+      | u
-+      | xref)*
-+   }
-+ refcontent =
-+   element refcontent {
-+     attribute xml:base { text }?,
-+     attribute xml:lang { text }?,
-+     (text | bcp14 | em | strong | sub | sup | tt)*
-+   }
-+ u =
-+   element u {
-+     attribute anchor { xsd:ID }?,
-+     attribute ascii { text }?,
-+     [ a:defaultValue = "lit-name-num" ] attribute format { text 
-+ }?,
-+     attribute pn { xsd:ID }?,
-+     text
-+   }
-+ start |= rfc
-<?ENDINC differences-from-v2.txt ?>
-</artwork>
-</section>
-
 <section title="Acknowledgments" anchor="acknowledgements" numbered="false">
 <t>
   Thanks to everybody who reviewed this document and provided feedback and/or
   specification text. Thanks especially go to Paul Hoffman for preparing the original
-  version of this document, to Julian Reschke for editing <xref target="RFC7749"/>
+  version of this document, to Julian Reschke for editing v2 (<xref target="RFC7749"/>)
   and to those who provided feedback on that document. 
 </t>
 <t>
