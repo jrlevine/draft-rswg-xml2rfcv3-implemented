@@ -5699,28 +5699,6 @@ not those that are part of a sequence of resources.</t>
 
 </section>
 
-<!--
-
-<section title="IAB Members at the Time of Publication" numbered="false">
-<t>
-Jari Arkko (IETF Chair) <vspace blankLines="0"/>
-Mary Barnes <vspace blankLines="0"/>
-Marc Blanchet <vspace blankLines="0"/>
-Ralph Droms <vspace blankLines="0"/>
-Ted Hardie <vspace blankLines="0"/>
-Joe Hildebrand <vspace blankLines="0"/>
-Russ Housley <vspace blankLines="0"/>
-Erik Nordmark <vspace blankLines="0"/>
-Robert Sparks <vspace blankLines="0"/>
-Andrew Sullivan <vspace blankLines="0"/>
-Dave Thaler <vspace blankLines="0"/>
-Brian Trammell <vspace blankLines="0"/>
-Suzanne Woolf
-</t>
-</section>
-
--->
-
   </middle>
   <back>
   
@@ -5779,7 +5757,6 @@ Suzanne Woolf
 
   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2026.xml"/>
   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2397.xml"/>
-  <!-- xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2629.xml"/   -->
   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3339.xml"/>
   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3470.xml"/>
   <xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3667.xml"/>
