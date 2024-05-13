@@ -133,6 +133,7 @@ to hold informative references.</li>
 as well).</li>
 
 <li>Added &lt;contact&gt; element.</li>
+<!-- Posted 2024-05-13 -->
 
 <li>Allowed multiple &lt;email&gt; elements in &lt;address&gt;.</li>
 
@@ -173,8 +174,10 @@ entry and still allow the ASCII-equivalent values to appear in the processed doc
 &lt;<x:ref>relref</x:ref>&gt; and &lt;<x:ref>xref</x:ref>&gt;.</li>
 
 <li>Add the "section", "relative", and "sectionFormat" attributes to &lt;<x:ref>xref</x:ref>&gt;.</li>
+<!-- Posted 2024-05-12 -->
 
 <li>Add the "numbered" and "removeInRFC" attributes to &lt;<x:ref>section</x:ref>&gt;.</li>
+<!-- Posted 2024-05-12 -->
 
 <li>Add the "removeInRFC" attribute to &lt;<x:ref>note</x:ref>&gt;.</li>
 
