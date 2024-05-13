@@ -113,7 +113,7 @@ from <xref target="element.artwork.attribute.src"/>.</li>
 
 <li>Added &lt;u&gt; element.</li>
 
-<li>Changed the "hanging" attribute of &lt;dl&gt; to "newline".</li>
+<li>Removed the  "hanging" attribute of &lt;dl&gt; and replaced it with "newline".</li>
 <!-- Posted 2024-05-12 -->
 
 <li>Added the "indent" attribute to &lt;dl&gt;.</li>
