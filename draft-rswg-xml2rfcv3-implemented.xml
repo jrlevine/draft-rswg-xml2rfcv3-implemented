@@ -18,6 +18,8 @@ Notes for the author:
 Before this is finished, the IETF needs to decide if re-issuing all the old XML not including the deprecated new stuff is acceptable.
 This will be done from the discussion of 7990bis.
 
+Need to discuss always including defaults in preptool because it generates a bunch of useless crap
+
 -->
 
 <!DOCTYPE rfc [
@@ -133,10 +135,13 @@ as well).</li>
 <!-- Posted 2024-05-13 -->
 
 <li>Allowed multiple &lt;email&gt; elements in &lt;address&gt;.</li>
+<!-- Posted 2024-05-14 -->
 
 <li>Added "markers" attribute to &lt;sourcecode&gt; element.</li>
+<!-- Posted 2024-05-14 -->
 
 <li>Added "brackets" attribute to &lt;eref&gt; element.</li>
+<!-- Posted 2024-05-14 -->
 
 <li>Added &lt;toc&gt; element, added grammar to allow authors section at the end.</li>
 
