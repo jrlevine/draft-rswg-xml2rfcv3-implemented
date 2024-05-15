@@ -164,6 +164,7 @@ Add "version" to indicate the version of xml2rfc vocabulary used in the document
 Add "scripts" to indicate which scripts are needed to render the document.
 Add "expiresDate" when an Internet-Draft expires.
 </li>
+<!-- Posted 2024-05-15 -->
 
 <li>Add "ascii" attributes to &lt;<x:ref>email</x:ref>&gt;,
 &lt;<x:ref>organization</x:ref>&gt;, &lt;<x:ref>street</x:ref>&gt;,
@@ -171,9 +172,11 @@ Add "expiresDate" when an Internet-Draft expires.
 Also add "asciiFullname", "asciiInitials", and "asciiSurname" to &lt;<x:ref>author</x:ref>&gt;.
 This allows an author to specify their information in their native scripts as the primary
 entry and still allow the ASCII-equivalent values to appear in the processed documents.</li>
+<!-- Posted 2024-05-15 -->
 
 <li>Add "anchor" attributes to many block elements to allow them to be linked with
 &lt;<x:ref>relref</x:ref>&gt; and &lt;<x:ref>xref</x:ref>&gt;.</li>
+<!-- Posted 2024-05-15 -->
 
 <li>Add the "section", "relative", and "sectionFormat" attributes to &lt;<x:ref>xref</x:ref>&gt;.</li>
 <!-- Posted 2024-05-12 -->
