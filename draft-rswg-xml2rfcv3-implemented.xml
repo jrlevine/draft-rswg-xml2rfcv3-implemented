@@ -106,9 +106,11 @@ and this document.
 
 <ul>
 <li>Allow &lt;blockquote&gt; as a child of &lt;aside&gt; and &lt;li&gt;.</li>
+<!-- Posted 2024-05-16 -->
 
 <li>Removed "It is an error to have both a "src" attribute and content in the &lt;artwork&gt; element."
 from <xref target="element.artwork.attribute.src"/>.</li>
+<!-- Posted 2024-05-16 -->
 
 <li>Added &lt;u&gt; element.</li>
 
@@ -144,6 +146,7 @@ as well).</li>
 <!-- Posted 2024-05-14 -->
 
 <li>Added &lt;toc&gt; element, added grammar to allow authors section at the end.</li>
+<!-- Posted 2024-05-16 -->
 
 <li>Added "editorial" value to the "submissionType" attribute of &lt;rfc&gt;
    and the &lt;stream&gt; element for the new Editorial stream.</li>
