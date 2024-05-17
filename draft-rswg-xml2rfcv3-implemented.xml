@@ -188,6 +188,7 @@ entry and still allow the ASCII-equivalent values to appear in the processed doc
 <!-- Posted 2024-05-12 -->
 
 <li>Add the "removeInRFC" attribute to &lt;<x:ref>note</x:ref>&gt;.</li>
+<!-- Posted 2024-05-17 -->
 
 <li>Add "pn" to &lt;<x:ref>artwork</x:ref>&gt;,
 &lt;<x:ref>aside</x:ref>&gt;, &lt;<x:ref>blockquote</x:ref>&gt;, &lt;<x:ref>boilerplate</x:ref>&gt;, &lt;<x:ref>dt</x:ref>&gt;,
@@ -195,12 +196,15 @@ entry and still allow the ASCII-equivalent values to appear in the processed doc
 &lt;<x:ref>sourcecode</x:ref>&gt;, &lt;<x:ref>t</x:ref>&gt;,
 and &lt;<x:ref>table</x:ref>&gt; to hold automatically generated
 numbers for items in a section that don't have their own numbering (namely figures and tables).</li>
+<!-- Posted 2024-05-17 -->
 
 <li>Add "display" to &lt;<x:ref>cref</x:ref>&gt; to indicate to tools whether or not
 to display the comment.</li>
+<!-- Posted 2024-05-17 -->
 
 <li>Add "keepWithNext" and "keepWithPrevious" to &lt;<x:ref>t</x:ref>&gt; as a hint to tools that
 do pagination that they should try to keep the paragraph with the next/previous element.</li>
+<!-- Posted 2024-05-17 -->
 
 <li>Add "indent" to  &lt;<x:ref>t</x:ref>&gt; to allow for explicitly indented paragraphs.</li>
 <!-- Posted 2024-05-12 -->
