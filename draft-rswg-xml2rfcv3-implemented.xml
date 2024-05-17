@@ -105,7 +105,7 @@ and this document.
 </t>
 
 <ul>
-<li>Allow &lt;blockquote&gt; as a child of &lt;aside&gt; and &lt;li&gt;.</li>
+<li>Allowed &lt;blockquote&gt; as a child of &lt;aside&gt; and &lt;li&gt;.</li>
 <!-- Posted 2024-05-16 -->
 
 <li>Removed "It is an error to have both a "src" attribute and content in the &lt;artwork&gt; element."
@@ -122,7 +122,7 @@ from <xref target="element.artwork.attribute.src"/>.</li>
 
 <li>Added the "align" attribute to &lt;table&gt;. Made the table title centered under the table.</li>
 
-<li>The &lt;name&gt; element now allows many more elements inside of it.</li>
+<li>Allowed the &lt;name&gt; element many more elements inside of it.</li>
 
 <li>Redefined &lt;references&gt; to allow &lt;references&gt; within it.
 In the typical case, an outer &lt;references&gt; will be used to hold an
@@ -160,37 +160,37 @@ as well).</li>
 
 <ul>
 
-<li>Add "sortRefs", "symRefs", "tocDepth", and "tocInclude" attributes to &lt;<x:ref>rfc</x:ref>&gt;
+<li>Added "sortRefs", "symRefs", "tocDepth", and "tocInclude" attributes to &lt;<x:ref>rfc</x:ref>&gt;
 to cover Processing Instructions (PIs) that were in v2 (<xref target="RFC7749"/>) that are still needed in the grammar.
-Add "prepTime" to indicate the time that the XML went through a preparation step.
-Add "version" to indicate the version of xml2rfc vocabulary used in the document.
-Add "scripts" to indicate which scripts are needed to render the document.
-Add "expiresDate" when an Internet-Draft expires.
+Added "prepTime" to indicate the time that the XML went through a preparation step.
+Added "version" to indicate the version of xml2rfc vocabulary used in the document.
+Added "scripts" to indicate which scripts are needed to render the document.
+Added "expiresDate" when an Internet-Draft expires.
 </li>
 <!-- Posted 2024-05-15 -->
 
-<li>Add "ascii" attributes to &lt;<x:ref>email</x:ref>&gt;,
+<li>Added "ascii" attributes to &lt;<x:ref>email</x:ref>&gt;,
 &lt;<x:ref>organization</x:ref>&gt;, &lt;<x:ref>street</x:ref>&gt;,
 &lt;<x:ref>city</x:ref>&gt;, &lt;<x:ref>region</x:ref>&gt;, &lt;<x:ref>country</x:ref>&gt;, and &lt;<x:ref>code</x:ref>&gt;.
-Also add "asciiFullname", "asciiInitials", and "asciiSurname" to &lt;<x:ref>author</x:ref>&gt;.
+Also added "asciiFullname", "asciiInitials", and "asciiSurname" to &lt;<x:ref>author</x:ref>&gt;.
 This allows an author to specify their information in their native scripts as the primary
 entry and still allow the ASCII-equivalent values to appear in the processed documents.</li>
 <!-- Posted 2024-05-15 -->
 
-<li>Add "anchor" attributes to many block elements to allow them to be linked with
+<li>Added "anchor" attributes to many block elements to allow them to be linked with
 &lt;<x:ref>relref</x:ref>&gt; and &lt;<x:ref>xref</x:ref>&gt;.</li>
 <!-- Posted 2024-05-15 -->
 
-<li>Add the "section", "relative", and "sectionFormat" attributes to &lt;<x:ref>xref</x:ref>&gt;.</li>
+<li>Added the "section", "relative", and "sectionFormat" attributes to &lt;<x:ref>xref</x:ref>&gt;.</li>
 <!-- Posted 2024-05-12 -->
 
-<li>Add the "numbered" and "removeInRFC" attributes to &lt;<x:ref>section</x:ref>&gt;.</li>
+<li>Added the "numbered" and "removeInRFC" attributes to &lt;<x:ref>section</x:ref>&gt;.</li>
 <!-- Posted 2024-05-12 -->
 
-<li>Add the "removeInRFC" attribute to &lt;<x:ref>note</x:ref>&gt;.</li>
+<li>Added the "removeInRFC" attribute to &lt;<x:ref>note</x:ref>&gt;.</li>
 <!-- Posted 2024-05-17 -->
 
-<li>Add "pn" to &lt;<x:ref>artwork</x:ref>&gt;,
+<li>Added "pn" to &lt;<x:ref>artwork</x:ref>&gt;,
 &lt;<x:ref>aside</x:ref>&gt;, &lt;<x:ref>blockquote</x:ref>&gt;, &lt;<x:ref>boilerplate</x:ref>&gt;, &lt;<x:ref>dt</x:ref>&gt;,
 &lt;<x:ref>figure</x:ref>&gt;, &lt;<x:ref>iref</x:ref>&gt;, &lt;<x:ref>li</x:ref>&gt;, &lt;<x:ref>references</x:ref>&gt;, &lt;<x:ref>section</x:ref>&gt;,
 &lt;<x:ref>sourcecode</x:ref>&gt;, &lt;<x:ref>t</x:ref>&gt;,
@@ -198,15 +198,15 @@ and &lt;<x:ref>table</x:ref>&gt; to hold automatically generated
 numbers for items in a section that don't have their own numbering (namely figures and tables).</li>
 <!-- Posted 2024-05-17 -->
 
-<li>Add "display" to &lt;<x:ref>cref</x:ref>&gt; to indicate to tools whether or not
+<li>Added "display" to &lt;<x:ref>cref</x:ref>&gt; to indicate to tools whether or not
 to display the comment.</li>
 <!-- Posted 2024-05-17 -->
 
-<li>Add "keepWithNext" and "keepWithPrevious" to &lt;<x:ref>t</x:ref>&gt; as a hint to tools that
+<li>Added "keepWithNext" and "keepWithPrevious" to &lt;<x:ref>t</x:ref>&gt; as a hint to tools that
 do pagination that they should try to keep the paragraph with the next/previous element.</li>
 <!-- Posted 2024-05-17 -->
 
-<li>Add "indent" to  &lt;<x:ref>t</x:ref>&gt; to allow for explicitly indented paragraphs.</li>
+<li>Added "indent" to  &lt;<x:ref>t</x:ref>&gt; to allow for explicitly indented paragraphs.</li>
 <!-- Posted 2024-05-12 -->
 
 </ul>
