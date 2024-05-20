@@ -121,8 +121,10 @@ from <xref target="element.artwork.attribute.src"/>.</li>
 <!-- Posted 2024-05-12 -->
 
 <li>Added the "align" attribute to &lt;table&gt;. Made the table title centered under the table.</li>
+<!-- Posted 2024-05-20 -->
 
 <li>Allowed the &lt;name&gt; element many more elements inside of it.</li>
+<!-- Posted 2024-05-20 -->
 
 <li>Redefined &lt;references&gt; to allow &lt;references&gt; within it.
 In the typical case, an outer &lt;references&gt; will be used to hold an
@@ -152,6 +154,7 @@ as well).</li>
    and the &lt;stream&gt; element for the new Editorial stream.</li>
 
 <li>Added &lt;list&gt; as a subelement of &lt;t&gt;.</li>
+<!-- Posted 2024-05-20 -->
 </ul>
 
 </section>
