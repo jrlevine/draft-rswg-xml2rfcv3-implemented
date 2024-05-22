@@ -113,6 +113,7 @@ from <xref target="element.artwork.attribute.src"/>.</li>
 <!-- Posted 2024-05-16 -->
 
 <li>Added &lt;u&gt; element.</li>
+<!-- Posted 2024-05-22 -->
 
 <li>Removed the  "hanging" attribute of &lt;dl&gt; and replaced it with "newline".</li>
 <!-- Posted 2024-05-12 -->
@@ -130,10 +131,12 @@ from <xref target="element.artwork.attribute.src"/>.</li>
 In the typical case, an outer &lt;references&gt; will be used to hold an
 inner &lt;references&gt; for normative references and an inner &lt;references&gt;
 to hold informative references.</li>
+<!-- Posted 2024-05-22 -->
 
 <li>Un-deprecated metadata attributes on the &lt;<x:ref>rfc</x:ref>&gt; element
 (with the intent to restore v2 (<xref target="RFC7749"/>) semantics of &lt;<x:ref>seriesInfo</x:ref>&gt;
 as well).</li>
+<!-- Posted 2024-05-22 -->
 
 <li>Added &lt;contact&gt; element.</li>
 <!-- Posted 2024-05-13 -->
@@ -152,6 +155,7 @@ as well).</li>
 
 <li>Added "editorial" value to the "submissionType" attribute of &lt;rfc&gt;
    and the &lt;stream&gt; element for the new Editorial stream.</li>
+<!-- Posted 2024-05-22 -->
 
 <li>Added &lt;list&gt; as a subelement of &lt;t&gt;.</li>
 <!-- Posted 2024-05-20 -->
