@@ -26,7 +26,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude"
 >
 	<front>
-  <title abbrev="Xml2rfc V3 as Implemented">The "xml2rfc" version 3 Vocabulary as Implemented</title>
+  <title abbrev="RFCXML V3 as Implemented">The RFCXML version 3 Vocabulary as Implemented</title>
   <author initials="J." surname="Levine" fullname="John Levine" role="editor">
     <organization>Standcore</organization>
 	<address><email>john.levine@standcore.com</email></address>
@@ -40,7 +40,7 @@
   
   <abstract>
     <t>
-       This document describes the "xml2rfc" version 3 vocabulary as implemented in xml2rfc tools
+       This document describes the RFCXML version 3 vocabulary as implemented in tools used by the RFC Production Center
        at the time of publication.
     </t>
   </abstract>
@@ -62,7 +62,8 @@
   <middle>
 <section title="Introduction">
 <t>
-  This document describes the updated version 3 ("v3") of the "xml2rfc" vocabulary as implemented in xml2rfc tools at the time of publication.
+  This document describes the updated version 3 ("v3") of the RFCXML vocabulary as implemented in tools used by the RFC Production Center at the time of publication.
+  The term "RFCXML" is defined in <xref target="RFCFORMATS"/>.
 </t>
 <t>
 The v3 format is used as part of the new RFC Series format described in <xref target="RFC6949"/>.
@@ -159,7 +160,7 @@ as well).</li>
 <li>Added "sortRefs", "symRefs", "tocDepth", and "tocInclude" attributes to &lt;<x:ref>rfc</x:ref>&gt;
 to cover Processing Instructions (PIs) that were in v2 (<xref target="RFC7749"/>) that are still needed in the grammar.
 Added "prepTime" to indicate the time that the XML went through a preparation step.
-Added "version" to indicate the version of xml2rfc vocabulary used in the document.
+Added "version" to indicate the version of RFCXML vocabulary used in the document.
 Added "scripts" to indicate which scripts are needed to render the document.
 Added "expiresDate" when an Internet-Draft expires.
 </li>
@@ -2984,7 +2985,7 @@ in this interesting report&lt;/a&gt;.
    <iref item="Elements" subitem="rfc" primary="true"/>
    <iref item="rfc element" primary="true"/>
    <t>
-      This is the root element of the xml2rfc vocabulary.
+      This is the root element of the RFCXML vocabulary.
    </t>
    <t>
       Processors distinguish between RFC mode ("number" attribute being
@@ -3281,7 +3282,7 @@ in this interesting report&lt;/a&gt;.
       <iref item="rfc element" subitem="version attribute"/>
       <iref item="version attribute" subitem="in rfc element"/>
       <t>
-         Specifies the version of xml2rfc syntax used in this document. The only expected value (for now) is "3".
+         Specifies the version of RFCXML syntax used in this document. The only expected value (for now) is "3".
       </t>
    </section>
 </section>
@@ -5657,7 +5658,7 @@ and should have only a localized impact on the document processing and rendering
   <dt>Published specification:</dt>
   <dd>This specification.</dd>
   <dt>Applications that use this Media Type:</dt>
-  <dd>Applications that transform xml2rfc to output representations such
+  <dd>Applications that transform RFCXML to output representations such
       as plain text or HTML, plus additional analysis tools.</dd>
   <dt>Fragment identifier considerations:</dt>
   <dd>The "anchor" attribute is used for assigning document-wide unique
@@ -5765,6 +5766,15 @@ not those that are part of a sequence of resources.</t>
       <author>
         <organization>IANA</organization>
       </author>
+      <date/>
+    </front>
+  </reference>
+
+  <reference anchor="RFCFORMATS" target="https://datatracker.ietf.org/doc/draft-rswg-rfc7990-updates/">
+    <front>
+      <title>RFC Formats and Versions</title>
+      <author initials="P." surname="Hoffman"/>
+      <author initials="H." surname="Flanagan"/>
       <date/>
     </front>
   </reference>
