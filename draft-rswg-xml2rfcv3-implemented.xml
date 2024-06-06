@@ -66,6 +66,11 @@
   The term "RFCXML" is defined in <xref target="RFCFORMATS"/>.
 </t>
 <t>
+Some parts of the vocabulary in this document is used by the RFC Production Center to create RFCs.
+Some parts of the vocabulary in this document is used by various tools to prepare Interne Drafts in XML; those drafts are sometimes input to the RFC series.
+Some parts of the vocabulary in this document may not be used in current tools, but are documented here because they were thought to be possibly useful.
+</t>
+<t>
 The v3 format is used as part of the new RFC Series format described in <xref target="RFC6949"/>.
 The new format is handled by existing tools for preparing the XML and
 converting it to other representations.
