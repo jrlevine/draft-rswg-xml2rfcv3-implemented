@@ -11,17 +11,6 @@
 <?rfc-ext allow-markup-in-artwork="yes" ?>
 <?rfc-ext include-references-in-index="yes" ?>
 
-<!--
-
-Notes for the author:
-
-Before this is finished, the IETF needs to decide if re-issuing all the old XML not including the deprecated new stuff is acceptable.
-This will be done from the discussion of 7990bis.
-
-Need to discuss always including defaults in preptool because it generates a bunch of useless crap
-
--->
-
 <!DOCTYPE rfc [
 <!ENTITY GH "https://github.com/jrlevine/draft-rswg-xml2rfcv3-implemented">
 ]>
