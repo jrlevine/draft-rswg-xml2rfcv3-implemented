@@ -2,7 +2,7 @@
 XSLT=saxon -now:$(shell date -r $< -u +%Y-%m-%dT%H:%M:%SZ)
 
 DIFF=gdiff
-VERSION=04
+VERSION=05
 
 all: \
 	draft-rswg-xml2rfcv3-implemented.redxml \
