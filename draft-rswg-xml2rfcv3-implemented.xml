@@ -87,6 +87,7 @@ used throughout this document, such as "prep tool" and "formatter".
 In this document, the term "format" is used when describing types of documents, primarily
 XML and HTML. The term "representation" is used when talking about a specific instantiation
 of a format, such as an XML document or an HTML document that was created by an XML document.
+This terminology does not exactly match the terminology in <xref target="RFCFORMATS"/>, but it was deemed too difficult to update it in a clean way before publication.
 </t>
 <t>
 In this document, "v2" refers to the format defined <xref target="RFC7749"/>, which is no longer used in production.
